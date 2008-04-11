@@ -37,7 +37,7 @@ import logic.Punkt;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int iw=640;
-		int ih=480;
+		int ih=640;
 		BufferedImage image = new BufferedImage(iw, ih, BufferedImage.TYPE_INT_RGB); // 123 wide, 123 tall
 		Graphics2D g2 = image.createGraphics();
 		
@@ -56,38 +56,53 @@ import logic.Punkt;
 		
 		double xMax=Math.abs(1.2*x0);
 		double skalaX=0.90*iw/(2*xMax);
-		int szerMax = (int) (0.95*iw);
-		int szerMin= (int) (0.05*iw);
+		int szerMax = (int) (0.95*iw)-1;
+		int szerMin= (int) (0.05*iw)-1;
 		int szer=szerMax-szerMin;
 		System.out.println(szer);
 		ArrayList<Punkt> funkcja=new ArrayList<Punkt>();
 		double temp=(-1)*xMax;
 		double dx=2*xMax/szer;
-		double yMax=Math.abs(parser.getValue(formula, temp));
+		double yMax=0;//=Math.abs(parser.getValue(formula, temp));
 		for (int i=0; i<szer; i++){
 			Punkt p=new Punkt();
 			p.setX(temp);
 			p.setY(parser.getValue(formula, temp));
 			funkcja.add(p);
 			temp+=dx;
-			if (Math.abs(p.getY())>yMax){
+			if (!((Double)p.getY()).isNaN() && Math.abs(p.getY())>yMax){
 				yMax=Math.abs(p.getY());
 			}
 		}
 		x0=(int)(iw/2)-1;
 		int y0=(int)(ih/2)-1;
+		double skala=1;
+		if (xMax>yMax) {
+			skala=0.9*ih/(2*xMax);
+		}
+		else {
+			skala=0.9*ih/(2*yMax);
+		}
 		double skalaY=0.90*ih/(2.2*yMax);
 		g2.setColor(Color.white);
 		g2.fillRect(0, 0, iw, ih);
 		g2.setColor(Color.black);
 		g2.drawRect(0, 0, iw-1, ih-1);
+		g2.drawLine((int)(iw/2)-1, (int)(0.05*ih)-1, (int)(iw/2)-1, (int)(0.95*ih)-1);
+		g2.drawLine((int)(0.05*iw)-1, (int)(ih/2)-1, (int)(0.95*iw)-1, (int)(ih/2)-1);
 		g2.setBackground(Color.green);
 		for (int i=1; i<funkcja.size(); i++){
 			Punkt p=funkcja.get(i);
+			int xi=szerMin+i;
 			//g2.fillRect((int)(skalaX *p.getX()+x0)-1, (int)(skalaY *(-1)*p.getY()+y0)-1, 3, 3);
 			g2.setStroke(new BasicStroke(1.5f));
 			g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-			g2.drawLine((int)(skalaX * funkcja.get(i-1).getX() + x0)-1, (int)(skalaY * (-1)*funkcja.get(i-1).getY()+y0)-1, (int)(skalaX * p.getX() + x0)-1, (int)(skalaY * (-1)*p.getY() + y0)-1);
+			//g2.drawLine((int)(skalaX * funkcja.get(i-1).getX() + x0)-1, (int)(skalaY * (-1)*funkcja.get(i-1).getY()+y0)-1, (int)(skalaX * p.getX() + x0)-1, (int)(skalaY * (-1)*p.getY() + y0)-1);
+			//g2.drawLine(xi-1, (int)(skala * (-1)*funkcja.get(i-1).getY()+y0), xi, (int)(skala * (-1)*p.getY() + y0));
+			if (!((Double)funkcja.get(i-1).getY()).isNaN() && !((Double)funkcja.get(i).getY()).isNaN()){
+				System.out.println("weszlo"+skala);
+				g2.drawLine((int)(skala * funkcja.get(i-1).getX() + x0), (int)(skala * (-1)*funkcja.get(i-1).getY()+y0), (int)(skala * p.getX() + x0), (int)(skala * (-1)*p.getY() + y0));
+			}
 			
 		}
 		g2.dispose();
