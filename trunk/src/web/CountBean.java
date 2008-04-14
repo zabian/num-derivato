@@ -5,6 +5,7 @@ public class CountBean {
 	String x;
 	String h;
 	String pochodna;
+	String wzorPoch;
 	
 	public String getWyr() {
 		return wyr;
@@ -29,6 +30,12 @@ public class CountBean {
 	}
 	public void setPochodna(String pochodna) {
 		this.pochodna = pochodna;
+	}
+	public String getWzorPoch() {
+		return wzorPoch;
+	}
+	public void setWzorPoch(String wzorPoch) {
+		this.wzorPoch = wzorPoch;
 	}
 	
 }

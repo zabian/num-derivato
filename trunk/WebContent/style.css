@@ -1,0 +1,138 @@
+.head{background-color:#ededed;}
+
+
+body {
+  margin: 1px;
+  padding: 1px;
+  font-family: Verdana, Arial, sans-serif;
+  background-color: #ffffff;
+  font-size:12px;
+}
+a:link,a:visited{color:#0066ff; text-decoration:none;font-size:12px;} 
+a:hover,a:visited:hover{color:#0077ff; text-decoration:underline;font-size:12px;}
+
+#header a:link,#header a:visited{color:#eeeeee; text-decoration:none;font-size:12px;} 
+#header a:hover,#header a:visited:hover{color:#ffffff; text-decoration:none;font-size:12px;}
+
+#all {
+    width: 70%;
+    height: auto;
+    float:left;
+    margin-top: 10px;
+    margin-right: 15%;
+    margin-bottom: 5px;
+    margin-left: 15%;
+}
+#header{
+	clear:both;
+	top:0px;
+	height:80px;
+	background:url(images/gora.jpg);
+	color:#ffffff;
+	font-size:12px;
+	border:#dddddd 1px solid;
+}
+
+#header ul {
+list-style:none;
+padding:0px;
+margin:0px;
+}
+#header li {
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+#header ul a:link, #header ul a:visited{
+display:block;
+padding: 5px 10px;
+}
+#header ul li a:hover {
+	background: #666666;
+	
+}
+#main{
+	position:relative;
+	top:0px;
+	height:auto;
+	min-height:25px;
+	background-color:#ffffff;
+	margin-right: 1px;
+    margin-left: 1px;
+	border:#dddddd 1px solid;
+}
+#main p,#content p,#footer p{
+margin-left:10px;
+}
+#content{
+	position:relative;
+	height:auto;
+	background-color:#ffffff;
+	margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+	min-height: 200px;
+}
+#footer{
+	position:relative;
+	color:#ffffff;
+	background-color:#000000;
+	font-size:11px;
+	height:auto;
+	border-top:#3399ff 3px solid;
+	padding: 1px 3px;
+}
+#mainList, #opcje{
+	list-style:none;
+}
+#contentInside{
+	width:60%;
+}
+TEXTAREA, INPUT, SELECT{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+	border:1px solid #AAB2BB; font-size: 11px;
+	color: #334455;
+	background-color: #EEEFF1;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+TABLE{
+	border:1px solid #AAB2BB;
+	background-color: #ffffff; 
+}	
+body {
+	margin:0;
+}
+.duzy{
+font-size:24px;
+}
+.naglowek{
+font-size:18px;
+font-weight:bold;
+}
+.head{
+background-color:#ededed;
+}
+.other{
+	color:#dddddd;
+}
+.bigTable{
+	border:1px solid #cccccc;
+	border-collapse: collapse;
+	width:100%;
+	}
+.bigTable td{
+	border-left:1px solid #dddddd;
+}
+.chmurka {
+ position:absolute;display:none;left:25px;top:25px;
+ border:1px solid #000;background-color:white;color:gray;
+ padding:4px;font:italic normal 11px verdana,sans-serif;
+}
+
+
+tr.lista{background-color: #ffffff; font-size: 12px; border: 1px solid #bbbbbb;}
+tr.lista:hover{background-color: #00aaff;font-size: 12px; border:1px solid #00aaff;}
+.mainListStyle{
+	list-style:none;
+}
