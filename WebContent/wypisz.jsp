@@ -22,9 +22,8 @@ for (int i=0; i<points.getX().length; i++){
 	p.setY(points.getY()[i]);
 	ob.add(p);
 }
+%><%=ob.get(0).getX()%><%
 request.getSession().setAttribute("ob",ob);
-%>
-
-<jsp:forward page="wyswietl.jsp"></jsp:forward>
+response.sendRedirect("show_data.jsp"); %>
 </body>
 </html>

@@ -41,6 +41,7 @@
 	</div>
 	<div id="main">
 		<div id="content">
+			<span class="naglowek">Obliczanie pochodnej na podstawie wzoru</span><br><br>
 			<jsp:useBean id="licz" class="web.CountBean" scope="session"/>
 			<jsp:setProperty name="licz" property="*"/>
 			<form method="post" action="licz.jsp">

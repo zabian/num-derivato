@@ -16,7 +16,6 @@ a:hover,a:visited:hover{color:#0077ff; text-decoration:underline;font-size:12px;
 
 #all {
     width: 70%;
-    height: auto;
     float:left;
     margin-top: 10px;
     margin-right: 15%;
@@ -59,7 +58,8 @@ padding: 5px 10px;
 	background-color:#ffffff;
 	margin-right: 1px;
     margin-left: 1px;
-	border:#dddddd 1px solid;
+    border:#dddddd 1px solid;
+	
 }
 #main p,#content p,#footer p{
 margin-left:10px;
@@ -89,6 +89,26 @@ margin-left:10px;
 #contentInside{
 	width:60%;
 }
+#lewy1{
+	 width: 40%;
+	 float:left;
+	 margin-left: 5px;
+	 margin-right: 5px;
+	 padding: 10px 5px;
+	 border:1px solid #AAB2BB;	
+}
+#pusty{
+	width: 10%;
+	float: left;
+}
+#prawy1{
+	 width: 40%;
+	 margin-left: 5px;
+	 margin-right: 5px;
+	 padding: 10px 5px;
+	 border:1px solid #AAB2BB;
+	 float: left;
+	}
 TEXTAREA, INPUT, SELECT{
 font-family: Verdana, Arial, Helvetica, sans-serif;
 	border:1px solid #AAB2BB; font-size: 11px;
@@ -107,7 +127,7 @@ body {
 font-size:24px;
 }
 .naglowek{
-font-size:18px;
+font-size:14px;
 font-weight:bold;
 }
 .head{

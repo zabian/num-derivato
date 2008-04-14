@@ -33,16 +33,14 @@
 	<div id="main">
 		<div id="content">
 			<span class="naglowek">Badanie dokładności różniczkowania</span><br><br> 
-			<jsp:useBean id="licz" class="web.CountBean" scope="session"/>
-			<jsp:setProperty name="licz" property="*"/>
-			<form method="post" action="licz.jsp">
+			<form method="post" action="show_experiment.jsp">
 			<table align="center" bgcolor="gray">
 				<tr>
 					<td align="right">
 						<b>Funkcja <var>x</var></b> 
 					</td>
 					<td>
-						<input type="text" name="wyr" size="50">
+						<input type="text" name="wyr" title="Np. (cos(x)^2)*x^3" size="50">
 					</td>
 				</tr>
 				<tr>
@@ -50,7 +48,7 @@
 						<b>Wzór pochodnej</b>
 					</td>
 					<td>
-						<input type="text" name="wzorPoch" size="50">
+						<input type="text" name="wzorPoch" title="Wzór pochodnej obliczonej analitycznie, np. 2*x" size="50">
 					</td>
 				</tr>
 				<tr>
@@ -58,7 +56,7 @@
 						<b><var>x<sub>0</sub></var></b>
 					</td>
 					<td>
-						<input type="text" name="x" size="15" >
+						<input type="text" name="x" title="Punkt różniczkowania, np. 3.453" size="15" >
 					</td>
 				</tr>
 				<tr>
@@ -66,7 +64,7 @@
 						<b><var>h</var></b> 
 					</td>
 					<td>
-						<input type="text" name="h" size="15">
+						<input type="text" name="h" title="Krok różniczkowania, np. 0.001" size="15">
 					</td>
 				</tr>
 				<tr>
@@ -74,7 +72,7 @@
 						<b>Iloraz</b>
 					</td> 
 					<td>
-						<select name="pochodna" style="width: 121px">
+						<select name="iloraz" title="Iloraz różnicowy" style="width: 121px">
 							<option>wsteczny</option>
 							<option>centralny</option>
 							<option>do przodu</option>
