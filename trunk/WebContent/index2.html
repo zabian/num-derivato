@@ -12,13 +12,16 @@
 		<p><span class="duzy">&nbsp;  derivato</span>
 		<ul id="menuList">
 			<li>
-				<a href="index.html">Start</a>
+				<a href="index.html" title="Strona główna">Start</a>
 			</li>
 			<li>	
-				<a href="licz.jsp">Ze wzoru</a>
+				<a href="licz.jsp" title="Obliczanie pochodnej ze wzoru funkcji">Ze wzoru</a>
 			</li>
 			<li>
-				<a href="index2.html">Dyskretnie</a>
+				<a href="index2.html" title="Obliczanie pochodnej funkcji zadanej punktami">Dyskretnie</a>
+			</li>
+			<li>
+				<a href="badania.jsp" title="Badanie dokładności różniczkowania numerycznego">Badanie</a>
 			</li>
 			<li>
 				<a href="help.html" title="Podręcznik użytkownika">Pomoc</a>
@@ -27,16 +30,30 @@
 	</div>
 	<div id="main">
 		<div id="content">
-			<div style="width: 50%; border:1px solid #AAB2BB;">
+			<span class="naglowek">Wybór zestawu danych</span><br><br>
+			<div id="lewy1">
 				<span class="naglowek">Wybór pliku z danymi</span><br><br> 
 				<form action="wyswietl.jsp" method="post" enctype="multipart/form-data">
-				<input type="file" name="bbb" value="Przeglądaj"><br><br>
-				<input type="submit" value="Prześlij">
+				<table>
+					<tr>
+						<td>
+							<input type="file" name="bbb" value="Przeglądaj"><br>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<input type="submit" value="Prześlij">
+						</td>
+					</tr>
+				</table>
+				
 				</form>
 			</div>
-			<br><br>
-			<div style="width: 50%; border:1px solid #AAB2BB;">
-				<span class="naglowek">Wpisz z palca</span>
+			<div id="pusty">&nbsp;
+			</div>
+			<div id="prawy1">
+				<span class="naglowek">Wpisz z palca</span><br><br>
 				<form action="wpisz.jsp" method="get">
 					<table>
 						<tr>

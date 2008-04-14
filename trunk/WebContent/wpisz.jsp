@@ -30,7 +30,7 @@
 	<div id="main">
 		<div id="content">
 			<span class="naglowek">Wprowadzanie współrzędnych funkcji</span><br><br>
-			<form action="wypisz">
+			<form action="wypisz.jsp">
 				<table>
 					<tr>
 						<td align="center">
@@ -56,10 +56,9 @@
 						</td>
 					</tr>
 					<%} %>
-					<tr rowspan="2">
-						<td>
-						</td>
-						<td align="right" valign="middle" colspan="2">
+					<tr></tr>
+					<tr>
+						<td align="right" valign="bottom" colspan="3" rowspan="2">
 							<input type="reset" value="Wyczyść">
 							<input type="submit" value="Zapisz">
 						</td>

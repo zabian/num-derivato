@@ -2,12 +2,51 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Obróbka plików</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<title>derivato - Strona główna</title>
 </head>
 <body>
-<form action="wyswietl.jsp" method="post" enctype="multipart/form-data">
-<input type="file" name="bbb" value="Przeglądaj"><br>
-<input type="submit" value="Prześlij">
-</form>
+
+<div id="all">
+	<div id="header">
+		<p><span class="duzy">&nbsp;  derivato</span>
+		<ul id="menuList">
+			<li>
+				<a href="index.html" title="Strona główna">Start</a>
+			</li>
+			<li>	
+				<a href="licz.jsp" title="Obliczanie pochodnej ze wzoru funkcji">Ze wzoru</a>
+			</li>
+			<li>
+				<a href="index2.html" title="Obliczanie pochodnej funkcji zadanej punktami">Dyskretnie</a>
+			</li>
+			<li>
+				<a href="badania.jsp" title="Badanie dokładności różniczkowania numerycznego">Badanie</a>
+			</li>
+			<li>
+				<a href="help.html" title="Podręcznik użytkownika">Pomoc</a>
+			</li>
+		</ul>
+	</div>
+	<div id="main">
+		<div id="content">
+			<span class="naglowek">Strona główna</span><br><br> 
+			<ul id="mainList">
+				<li>
+					<a href="licz.jsp">Obliczanie pochodnej ze wzoru funkcji</a>
+				</li>
+				<li>
+					<a href="index2.html">Obliczenie pochodnej funkcji dyskretnej</a>
+				</li>
+				<li>
+					<a href="help.html">Podręcznik użytkownika</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="footer">
+		<center><p> Created by Wojciech Żaboklicki </p></center>
+	</div>
+</div>
 </body>
 </html>

@@ -1,11 +1,12 @@
 package web;
 
 public class CountBean {
-	String wyr;
-	String x;
-	String h;
-	String pochodna;
-	String wzorPoch;
+	protected String wyr;
+	protected String x;
+	protected String h;
+	protected String iloraz;
+	protected String pochodna;
+	protected String wzorPoch;
 	
 	public String getWyr() {
 		return wyr;
@@ -24,6 +25,12 @@ public class CountBean {
 	}
 	public void setH(String h) {
 		this.h = h;
+	}
+	public String getIloraz() {
+		return iloraz;
+	}
+	public void setIloraz(String iloraz) {
+		this.iloraz = iloraz;
 	}
 	public String getPochodna() {
 		return pochodna;
