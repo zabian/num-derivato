@@ -2,15 +2,11 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="oblicz.Pochodna"%>
+<%@page import="java.math.BigDecimal"%>
+
 <html>
 <%! Pochodna p=new Pochodna();%>
 
-<script type="text/javascript">
-	function Chmurka(T,t){
- 		T.title=''
- 		T.parentNode.lastChild.style.display=t?'block':'none'
-	}
-</script>
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -51,7 +47,7 @@
 						<b>Funkcja <var>x</var></b> 
 					</td>
 					<td>
-						<input type="text" name="wyr" size="50">
+						<input type="text" name="wyr" id="wyr1" value="<%=licz.getWyr()!=null?licz.getWyr():""  %>" size="50">
 					</td>
 				</tr>
 				<tr>
@@ -72,10 +68,22 @@
 				</tr>
 				<tr>
 					<td align="right">
-						<b>Iloraz</b>
+						<b>Pochodna</b>
 					</td> 
 					<td>
 						<select name="pochodna" style="width: 121px">
+							<option>pierwsza</option>
+							<option>druga</option>
+							<option>wszystkie</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<b>Iloraz</b>
+					</td> 
+					<td>
+						<select name="iloraz" style="width: 121px">
 							<option>wsteczny</option>
 							<option>centralny</option>
 							<option>do przodu</option>
@@ -83,13 +91,13 @@
 						</select>
 					</td>
 				</tr>
-				<tr><td></td><td align="right"><input type="reset" value="Wyczyść"> <input type="submit" size="10" value="Oblicz">
+				<tr><td></td><td align="right"><input type="button" value="Wyczyść" onclick="javascript:document.getElementById('wyr1').value='';"> <input type="submit" size="10" value="Oblicz">
 				</td></tr>
 			</table>
 			</form>
 			<br><br>
 			<%if (licz.getWyr()!=null && licz.getX()!=null && licz.getH()!=null) {%>
-			<table align="center" border="1" bordercolor="#dddddd" width="300">
+			<table align="center" width="300">
 				<tr>
 					<td>
 						Funkcja x
@@ -119,7 +127,10 @@
 						Wartość pochodnej
 					</td>
 					<td>
-						<%=p.derivCentral(licz.getWyr(),Double.parseDouble(licz.getX()),Double.parseDouble(licz.getH()), 1) %>
+						<%=new BigDecimal( 45562.112725  ).setScale( 3, BigDecimal.ROUND_HALF_UP).doubleValue() %><br>
+						
+							
+						
 					</td>
 				</tr>
 			</table>

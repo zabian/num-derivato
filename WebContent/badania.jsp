@@ -80,6 +80,18 @@
 						</select>
 					</td>
 				</tr>
+				<tr>
+					<td align="right">
+						<b>Pochodna</b>
+					</td>
+					<td>
+						<select name="pochodna" title="Stopień pochodnej" style="width: 121px">
+							<option>pierwsza</option>
+							<option>druga</option>
+							<option>wszystkie</option>							
+						</select>
+					</td>
+				</tr>
 				<tr><td></td><td align="right"><input type="reset" value="Wyczyść"> <input type="submit" size="10" value="Oblicz">
 				</td></tr>
 			</table>

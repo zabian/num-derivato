@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="oblicz.Pochodna"%>
+<%@page import="java.math.BigDecimal"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -41,74 +42,99 @@ double p;
 		<div id="content">
 			<span class="naglowek">Wynik badania dokładności</span><br><br> 
 			<%System.out.println("++++++++:"+ badanie.getIloraz()); %>
+			<%if(badanie.getPochodna().equals("pierwsza") || badanie.getPochodna().equals("wszystkie")){ %>
 			<%double p1=parser.getValue(badanie.getWzorPoch(), Double.parseDouble(badanie.getX())); %>
-			<table>
-				<tr>
-					<td>
-						<b><var>h</var></b>	
-					</td>
+			<div id="lewy">
 				
-				<%if(badanie.getIloraz().equals("wsteczny") || badanie.getIloraz().equals("wszystkie")){%>
-					<td align="center" colspan="2">
-						<b>wsteczny</b>
-					</td>
-				<%}
-				%>
-				<%if(badanie.getIloraz().equals("centralny") || badanie.getIloraz().equals("wszystkie")){%>
-					<td align="center" colspan="2">
-						<b>centralny</b>
-					</td>
-				<%}
-				%>
-				<%if(badanie.getIloraz().equals("do przodu") || badanie.getIloraz().equals("wszystkie")){%>
-					<td align="center" colspan="2">
-						<b>do przodu</b>
-					</td>
-				<%}
-				%>
-				</tr>
-				<%for (int i=0; i<h.length; i++){%>
-				
-				<tr>
-					<td>
-						<b><var><%=h[i] %></var></b>	
-					</td>
-				
-				<%if(badanie.getIloraz().equals("wsteczny") || badanie.getIloraz().equals("wszystkie")){%>
-					<td align="center">
-						<%p=parser.derivBack(badanie.getWyr(), Double.parseDouble(badanie.getX()), h[i], 1); %>
-						<%=p%>
-					</td>
-					<td>
-						<%=Math.abs(p-p1) %>
-					</td>
-				<%}
-				%>
-				<%if(badanie.getIloraz().equals("centralny") || badanie.getIloraz().equals("wszystkie")){%>
-					<td align="center">
-						<%p=parser.derivCentral(badanie.getWyr(), Double.parseDouble(badanie.getX()), h[i], 1); %>
-						<%=p%>
-					</td>
-					<td>
-						<%=Math.abs(p-p1) %>
-					</td>
-				<%}
-				%>
-				<%if(badanie.getIloraz().equals("do przodu") || badanie.getIloraz().equals("wszystkie")){%>
-					<td align="center">
-						<%p=parser.derivForward(badanie.getWyr(), Double.parseDouble(badanie.getX()), h[i], 1); %>
-						<%=p%>
-					</td>
-					<td>
-						<%=Math.abs(p-p1) %>
-					</td>
-				<%}
-				%>
-				</tr>
+					<%if (badanie.getIloraz().equals("wsteczny") || badanie.getIloraz().equals("wszystkie")){ %>
+						<table>
+							<tr>
+								<td>
+									<b><var>h</var></b>	
+								</td>
+								<td colspan="2" align="center">
+									<b><%=badanie.getIloraz() %></b>
+								</td>
+							</tr>
+							<%for (int i=0; i<h.length; i++) { %>
+								<tr>
+									<td>
+										<%=i %>
+									</td>
+									<td>
+										<%p=new BigDecimal(parser.derivBack(badanie.getWyr(),Double.parseDouble(badanie.getX()),h[i],1)).setScale(4,BigDecimal.ROUND_HALF_UP).doubleValue(); %>
+										<%=p %>
+									</td>
+									<td>
+										<%=Math.abs(p1-p) %>
+									</td>														
+								</tr>
+							<%}%>
+						</table>
+						<br><br>
+					<%} %>
 					
-				<%}
-				%>
-			</table>
+					<%if (badanie.getIloraz().equals("centralny") || badanie.getIloraz().equals("wszystkie")){ %>
+						<table>
+							<tr>
+								<td>
+									<b><var>h</var></b>	
+								</td>
+								<td colspan="2" align="center">
+									<b><%=badanie.getIloraz() %></b>
+								</td>
+							</tr>
+							<%for (int i=0; i<h.length; i++) { %>
+								<tr>
+									<td>
+										<%=i %>
+									</td>
+									<td>
+										<%p=new BigDecimal(parser.derivCentral(badanie.getWyr(),Double.parseDouble(badanie.getX()),h[i],1)).setScale(4,BigDecimal.ROUND_HALF_UP).doubleValue(); %>
+										<%=p %>
+									</td>
+									<td>
+										<%=Math.abs(p1-p) %>
+									</td>														
+								</tr>
+							<%}%>
+						</table>
+						<br><br>
+					<%} %>
+					
+					<%if (badanie.getIloraz().equals("do przodu") || badanie.getIloraz().equals("wszystkie")){ %>
+						<table>
+							<tr>
+								<td>
+									<b><var>h</var></b>	
+								</td>
+								<td colspan="2" align="center">
+									<b><%=badanie.getIloraz() %></b>
+								</td>
+							</tr>
+							<%for (int i=0; i<h.length; i++) { %>
+								<tr>
+									<td>
+										<%=i %>
+									</td>
+									<td>
+										<%p=new BigDecimal(parser.derivForward(badanie.getWyr(),Double.parseDouble(badanie.getX()),h[i],1)).setScale(4,BigDecimal.ROUND_HALF_UP).doubleValue(); %>
+										<%=p %>
+									</td>
+									<td>
+										<%=Math.abs(p1-p) %>
+									</td>														
+								</tr>
+							<%}%>
+						</table>
+						<br><br>
+					<%} %>
+					
+			</div>
+			<%} %>
+			<div id="prawy" style="float: right; width: 40%">&nbsp; </div>
+			
+			
 		</div>
 	</div>
 	<div id="footer">
