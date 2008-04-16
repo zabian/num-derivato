@@ -25,13 +25,16 @@
 		<p><span class="duzy">&nbsp;  derivato</span>
 		<ul id="menuList">
 			<li>
-				<a href="index.html">Start</a>
+				<a href="index.html" title="Strona główna">Start</a>
 			</li>
 			<li>	
-				<a href="licz.jsp">Ze wzoru</a>
+				<a href="licz.jsp" title="Obliczanie pochodnej ze wzoru funkcji">Ze wzoru</a>
 			</li>
 			<li>
-				<a href="index2.html">Dyskretnie</a>
+				<a href="index2.html" title="Obliczanie pochodnej funkcji zadanej punktami">Dyskretnie</a>
+			</li>
+			<li>
+				<a href="badania.jsp" title="Badanie dokładności różniczkowania numerycznego">Badanie</a>
 			</li>
 			<li>
 				<a href="help.html" title="Podręcznik użytkownika">Pomoc</a>
