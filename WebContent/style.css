@@ -41,13 +41,19 @@ margin:0px;
 	float: left;
 	padding: 0;
 	margin: 0;
+	
 }
 #header ul a:link, #header ul a:visited{
 display:block;
 padding: 5px 10px;
+border-left: 1px #000000 solid;
+border-right: 1px #000000 solid;
 }
 #header ul li a:hover {
 	background: #666666;
+	border-right: 1px #3399ff solid;
+	border-left: 1px #3399ff solid;
+	
 	
 }
 #main{
@@ -117,6 +123,13 @@ font-family: Verdana, Arial, Helvetica, sans-serif;
 	background-color: #EEEFF1;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
+input:hover,select:hover{
+	border:1px solid #00ce58; font-size: 11px;
+	color: #334455;
+	background-color: #EEEFF1;
+
+}
+	
 TABLE{
 	border:1px solid #AAB2BB;
 	background-color: #ffffff; 

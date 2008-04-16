@@ -53,13 +53,13 @@ double p;
 									<b><var>h</var></b>	
 								</td>
 								<td colspan="2" align="center">
-									<b><%=badanie.getIloraz() %></b>
+									<b>wsteczny</b>
 								</td>
 							</tr>
 							<%for (int i=0; i<h.length; i++) { %>
 								<tr>
 									<td>
-										<%=i %>
+										<%=h[i] %>
 									</td>
 									<td>
 										<%p=new BigDecimal(parser.derivBack(badanie.getWyr(),Double.parseDouble(badanie.getX()),h[i],1)).setScale(4,BigDecimal.ROUND_HALF_UP).doubleValue(); %>
@@ -81,7 +81,7 @@ double p;
 									<b><var>h</var></b>	
 								</td>
 								<td colspan="2" align="center">
-									<b><%=badanie.getIloraz() %></b>
+									<b>centralny</b>
 								</td>
 							</tr>
 							<%for (int i=0; i<h.length; i++) { %>
@@ -109,7 +109,7 @@ double p;
 									<b><var>h</var></b>	
 								</td>
 								<td colspan="2" align="center">
-									<b><%=badanie.getIloraz() %></b>
+									<b>do przodu</b>
 								</td>
 							</tr>
 							<%for (int i=0; i<h.length; i++) { %>

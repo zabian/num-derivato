@@ -92,7 +92,7 @@
 						</select>
 					</td>
 				</tr>
-				<tr><td></td><td align="right"><input type="reset" value="Wyczyść"> <input type="submit" size="10" value="Oblicz">
+				<tr><td></td><td align="right"><input type="reset" value="Wyczyść"> <input type="submit" size="10"  value="Oblicz">
 				</td></tr>
 			</table>
 			</form>
