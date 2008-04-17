@@ -97,7 +97,7 @@
 			%>
 			
 			<br><br>
-			<table width="320">
+			<table width="200">
 			<%for(int i=0; i<ob.size(); i++ ){%>
 			<tr>
 				<%for(int j=0; j<ob.size(); j++){ %>
