@@ -3,6 +3,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+<script type="text/javascript">
+	function show(id){
+		document.getElementById(id).style.visibility='visible'
+	}
+	function hide(id){
+		document.getElementById(id).style.visibility='hidden'
+	}
+
+</script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="style.css" rel="stylesheet" type="text/css">
 <title>derivato - Badanie dokładności</title>
@@ -34,7 +45,7 @@
 		<div id="content">
 			<span class="naglowek">Badanie dokładności różniczkowania</span><br><br> 
 			<form method="post" action="show_experiment.jsp">
-			<table align="center" bgcolor="gray">
+			<table bgcolor="gray">
 				<tr>
 					<td align="right">
 						<b>Funkcja <var>x</var></b> 
@@ -43,12 +54,21 @@
 						<input type="text" name="wyr" title="Np. (cos(x)^2)*x^3" size="50">
 					</td>
 				</tr>
-				<tr>
+				<tr id="poch">
 					<td align="right">
-						<b>Wzór pochodnej</b>
+						<b>I pochodna</b>
 					</td>
 					<td>
-						<input type="text" name="wzorPoch" title="Wzór pochodnej obliczonej analitycznie, np. 2*x" size="50">
+						<input type="text" name="wzorPoch" title="Wzór pochodnej obliczonej analitycznie, np. 2*x^2" size="50">
+					</td>
+				</tr>
+				<tr id="poch2">
+					<td align="right">
+						<b>II pochodna</b>
+					</td>
+					<td>
+						<input type="text" name="wzorPoch2" title="Wzór drugiej pochodnej obliczonej analitycznie, np. 4*x" size="50">
+						
 					</td>
 				</tr>
 				<tr>
@@ -61,18 +81,10 @@
 				</tr>
 				<tr>
 					<td align="right">
-						<b><var>h</var></b> 
-					</td>
-					<td>
-						<input type="text" name="h" title="Krok różniczkowania, np. 0.001" size="15">
-					</td>
-				</tr>
-				<tr>
-					<td align="right">
 						<b>Iloraz</b>
 					</td> 
 					<td>
-						<select name="iloraz" title="Iloraz różnicowy" style="width: 121px">
+						<select name="iloraz" style="width: 108px" title="Iloraz różnicowy" ">
 							<option>wsteczny</option>
 							<option>centralny</option>
 							<option>do przodu</option>
@@ -85,10 +97,10 @@
 						<b>Pochodna</b>
 					</td>
 					<td>
-						<select name="pochodna" title="Stopień pochodnej" style="width: 121px">
-							<option>pierwsza</option>
-							<option>druga</option>
-							<option>wszystkie</option>							
+						<select name="pochodna" style="width: 108px" title="Stopień pochodnej"  >
+							<option onclick="javascript:show('poch');hide('poch2');">pierwsza</option>
+							<option onclick="javascript:show('poch2');hide('poch');">druga</option>
+							<option selected="selected" onclick="javascript:show('poch');show('poch2');">wszystkie</option>							
 						</select>
 					</td>
 				</tr>
