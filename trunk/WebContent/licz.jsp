@@ -39,7 +39,7 @@ function reset(){
 				<a href="licz.jsp" title="Obliczanie pochodnej ze wzoru funkcji">Ze wzoru</a>
 			</li>
 			<li>
-				<a href="index2.html" title="Obliczanie pochodnej funkcji zadanej punktami">Dyskretnie</a>
+				<a href="index2.jsp" title="Obliczanie pochodnej funkcji zadanej punktami">Dyskretnie</a>
 			</li>
 			<li>
 				<a href="badania.jsp" title="Badanie dokładności różniczkowania numerycznego">Badanie</a>
@@ -55,21 +55,21 @@ function reset(){
 			<jsp:useBean id="licz" class="web.CountBean" scope="session"/>
 			<jsp:setProperty name="licz" property="*"/>
 			<form method="post" action="deriv.jsp">
-			<table align="center">
+			<table>
 				<tr>
 					<td align="right">
 						<b>Funkcja <var>x</var></b> 
 					</td>
 					<td>
-						<input type="text" name="wyr" id="wyr1" value="<%=licz.getWyr()!=null?licz.getWyr():""  %>" ondblclick="value=''" size="50">
+						<input type="text" name="wyr" id="wyr1" title="Wzór funkcji x, np. (cos(x)^2)*x^3" value="<%=licz.getWyr()!=null?licz.getWyr():""  %>" ondblclick="value=''" size="50">
 					</td>
 				</tr>
 				<tr>
 					<td align="right">
-						<b><var>x<sub>0</sub></var></b>
+						<b><var>x</var><sub>0</sub></b>
 					</td>
 					<td>
-						<input type="text" name="x" size="15" >
+						<input type="text" name="x" title="Punkt różniczkowania, np. 3.453" value="<%=licz.getX()!=null?licz.getX():"" %>" ondblclick="value=''" size="15" >
 					</td>
 				</tr>
 				<tr>
@@ -77,7 +77,7 @@ function reset(){
 						<b><var>h</var></b> 
 					</td>
 					<td>
-						<input type="text" name="h" size="15">
+						<input type="text" name="h" title="Krok różniczkowania, np. 0.001" value="<%=licz.getH()!=null?licz.getH():"" %>" ondblclick="value=''" size="15">
 					</td>
 				</tr>
 				<tr>
@@ -85,10 +85,10 @@ function reset(){
 						<b>Pochodna</b>
 					</td> 
 					<td>
-						<select name="pochodna" style="width: 121px">
+						<select name="pochodna" title="Stopień pochodnej" style="width: 121px">
 							<option>pierwsza</option>
 							<option>druga</option>
-							<option>wszystkie</option>
+							<option selected="selected">wszystkie</option>
 						</select>
 					</td>
 				</tr>
@@ -97,11 +97,11 @@ function reset(){
 						<b>Iloraz</b>
 					</td> 
 					<td>
-						<select name="iloraz" style="width: 121px">
+						<select name="iloraz" title="Iloraz różnicowy" style="width: 121px">
 							<option>wsteczny</option>
 							<option>centralny</option>
 							<option>do przodu</option>
-							<option>wszystkie</option>
+							<option selected="selected">wszystkie</option>
 						</select>
 					</td>
 				</tr>

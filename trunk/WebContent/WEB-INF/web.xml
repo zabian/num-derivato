@@ -29,4 +29,18 @@
     <servlet-name>ImageMaker1</servlet-name>
     <url-pattern>/imageMaker1</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>Serwlet generujący plik csv ze współrzędnymi punktów</description>
+    <display-name>PointsFileMaker</display-name>
+    <servlet-name>PointsFileMaker</servlet-name>
+    <servlet-class>util.PointsFileMaker</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PointsFileMaker</servlet-name>
+    <url-pattern>/PointsFileMaker</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PointsFileMaker</servlet-name>
+    <url-pattern>/punkty.txt</url-pattern>
+  </servlet-mapping>
 </web-app>

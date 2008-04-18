@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="derivato" default="deploy">
+	<property file="build.properties"/>
+	<property name="sourcedir" value="${basedir}" />
+	<property name="projectname" value="derivato"/>
+	<property name="packagename" value="derivato"/>
+	<target name="clean" description="czyszczenie wszystkich archiwow">
+		<delete file="${basedir}/${projectname}Web.war" />
+		<delete file="${basedir}/${projectname}App.ear" />
+		<delete file="${targetdir}/${projectname}Web.war" />
+		<delete file="${targetdir}/${projectname}App.ear" />
+
+	</target>
+	<target name="package" depends="clean">
+		<war destfile="${sourcedir}/${projectname}Web.war" webxml="${sourcedir}/WebContent/WEB-INF/web.xml">
+			<classes dir="build/classes"/>
+			<fileset dir="WebContent"/>
+		</war>
+		
+		<ear destfile="${sourcedir}/${projectname}App.ear" appxml="${sourcedir}/WebContent/META-INF/application.xml">
+			<fileset dir="${sourcedir}" includes="*.jar,*.war,*.properties"/>
+			
+		</ear>
+	</target>
+	<target name="deploy" depends="package">
+		<copy todir="${targetdir}">
+			<fileset dir="${sourcedir}">
+				<include name="${projectname}App.ear" />
+			</fileset>
+		</copy>
+	</target>
+</project>

@@ -31,7 +31,7 @@
 				<a href="licz.jsp">Ze wzoru</a>
 			</li>
 			<li>
-				<a href="index2.html">Dyskretnie</a>
+				<a href="index2.jsp">Dyskretnie</a>
 			</li>
 			<li>
 				<a href="help.html" title="Podręcznik użytkownika">Pomoc</a>
@@ -100,7 +100,7 @@
 			
 			%>
 			
-			<table width="120">
+			<table>
 				<tr align="center">
 					<td>
 						<b><var>x<sub>i</sub></var></b>
@@ -175,7 +175,7 @@
 			<%=in.getFoo(ob,k) %>
 			<br><br>
 			<%=in.getHTMLClasic(ob,k) %>
-			<% request.getSession().setAttribute("punkty",ob); %>
+			<% request.getSession().setAttribute("ob",ob); %>
 			<%
 					/*
 					//PrintWriter pw = new PrintWriter(
