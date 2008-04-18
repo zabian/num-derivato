@@ -12,7 +12,7 @@ a:link,a:visited{color:#0066ff; text-decoration:none;font-size:12px;}
 a:hover,a:visited:hover{color:#0077ff; text-decoration:underline;font-size:12px;}
 
 #header a:link,#header a:visited{color:#eeeeee; text-decoration:none;font-size:12px;} 
-#header a:hover,#header a:visited:hover{color:#ffffff; text-decoration:none;font-size:12px;}
+#header a:hover,#header a:visited:hover{color:#3e3e3e; text-decoration:none;font-size:12px;}
 
 #all {
     width: 70%;
@@ -50,9 +50,10 @@ border-left: 1px #000000 solid;
 border-right: 1px #000000 solid;
 }
 #header ul li a:hover {
-	background: #666666;
-	border-right: 1px #3399ff solid;
-	border-left: 1px #3399ff solid;
+	background: #EEEFF1;
+	
+	
+	
 		
 }
 #main{
@@ -64,7 +65,7 @@ border-right: 1px #000000 solid;
 	margin-right: 1px;
     margin-left: 1px;
     border:#dddddd 1px solid;
-    clear: both;
+    
 	
 }
 #main p,#content p,#footer p{
@@ -77,8 +78,8 @@ margin-left:10px;
 	margin-top: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
-    margin-left: 10px;
-	min-height: 200px;
+    margin-left: 15px;
+	min-height: 300px;
 }
 #footer{
 	position:relative;
@@ -87,7 +88,7 @@ margin-left:10px;
 	font-size:11px;
 	height:auto;
 	border-top:#3399ff 3px solid;
-	padding: 1px 3px;
+	padding: 1px 0px;
 	clear:both;
 }
 #mainList, #opcje{
@@ -106,8 +107,6 @@ margin-left:10px;
 }
 #lewy1{
 	 width: 40%;
-	 float:left;
-	 margin-left: 5px;
 	 margin-right: 5px;
 	 padding: 10px 5px;
 	 border:1px solid #AAB2BB;	
@@ -118,11 +117,11 @@ margin-left:10px;
 }
 #prawy1{
 	 width: 40%;
-	 margin-left: 5px;
+	 
 	 margin-right: 5px;
 	 padding: 10px 5px;
 	 border:1px solid #AAB2BB;
-	 float: left;
+	 clear: both;
 	}
 TEXTAREA, INPUT, SELECT{
 font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -141,6 +140,7 @@ input:hover,select:hover{
 TABLE{
 	border:1px solid #AAB2BB;
 	background-color: #ffffff; 
+	font-size: 11px;
 }	
 body {
 	margin:0;
@@ -150,6 +150,10 @@ font-size:24px;
 }
 .naglowek{
 font-size:14px;
+font-weight:bold;
+}
+.naglowek2{
+font-size:12px;
 font-weight:bold;
 }
 .head{

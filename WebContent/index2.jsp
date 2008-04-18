@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="style.css" rel="stylesheet" type="text/css">
-<title>derivato - Wprowadzanie współrzędnych funkcji</title>
+<title>derivato - Wybór pliku z danymi</title>
 </head>
 <body>
 
@@ -32,44 +32,52 @@
 	</div>
 	<div id="main">
 		<div id="content">
-			<span class="naglowek">Wprowadzanie współrzędnych funkcji</span><br><br>
-			<form action="wypisz.jsp">
-				<table>
+			<span class="naglowek">Wybór zestawu danych</span><br><br>
+			
+			<%if (request.getSession().getAttribute("ob")!=null){ %>
+				<a href="show_data.jsp">Użyj wczytanych w sesji</a><br><br><%}%>
+			<div id="lewy1">
+				<span class="naglowek2">Wybór pliku z danymi</span><br><br> 
+				<form action="wyswietl.jsp" method="post" enctype="multipart/form-data">
+				<table align="center">
 					<tr>
-						<td align="center">
-							&nbsp; <b><var>i</var></b>
-						</td>
-						<td align="center">
-							<b><var>x<sub>i</sub></var></b>
-						</td>
-						<td align="center">
-							<b><var>y<sub>i</sub></var></b>
+						<td>
+							<input type="file" title="Ścieżka do pliku csv ze współrzędnymi funkcji" name="bbb" value="Przeglądaj"><br>
 						</td>
 					</tr>
-					<%for (int i=0; i<Integer.parseInt(request.getParameter("qty")); i++) {%>
+				
 					<tr>
 						<td>
-							&nbsp; <%=i %>&nbsp;
-						</td>
-						<td>
-							<input type="text" name="x" title="x<%=i %>" ondblclick="value=''" size="15">
-						</td>
-						<td>
-							<input type="text" name="y" title="y<%=i %>" ondblclick="value=''" size="15">
+							<input type="submit" value="Prześlij">
 						</td>
 					</tr>
-					<%} %>
-					<tr></tr>
-					<tr>
-						<td align="right" valign="bottom" colspan="3" rowspan="2">
-							<input type="reset" value="Wyczyść">
-							<input type="submit" value="Zapisz">
-						</td>
-					</tr>	
-					
-					
 				</table>
-			</form>
+				
+				</form>
+			</div><br>
+			<div id="prawy1">
+				<span class="naglowek2">Wpisz z palca</span><br><br>
+				<form action="wpisz.jsp" method="get">
+					<table align="center">
+						<tr>
+							<td>
+							<b>Liczba punktów</b>
+							</td>
+							<td>
+								<input type="text" title="Liczba punktów do wprowadzenia" name="qty" size="15">
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td align="right">
+								<input type="submit" value="Wprowadź">
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+			
 		</div>
 	</div>
 	<div id="footer">

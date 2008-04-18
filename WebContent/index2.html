@@ -18,7 +18,7 @@
 				<a href="licz.jsp" title="Obliczanie pochodnej ze wzoru funkcji">Ze wzoru</a>
 			</li>
 			<li>
-				<a href="index2.html" title="Obliczanie pochodnej funkcji zadanej punktami">Dyskretnie</a>
+				<a href="index2.jsp" title="Obliczanie pochodnej funkcji zadanej punktami">Dyskretnie</a>
 			</li>
 			<li>
 				<a href="badania.jsp" title="Badanie dokładności różniczkowania numerycznego">Badanie</a>
@@ -34,10 +34,10 @@
 			<div id="lewy1">
 				<span class="naglowek">Wybór pliku z danymi</span><br><br> 
 				<form action="wyswietl.jsp" method="post" enctype="multipart/form-data">
-				<table>
+				<table align="center">
 					<tr>
 						<td>
-							<input type="file" name="bbb" value="Przeglądaj"><br>
+							<input type="file" title="Ścieżka do pliku csv ze współrzędnymi funkcji" name="bbb" value="Przeglądaj"><br>
 						</td>
 					</tr>
 				
@@ -49,19 +49,17 @@
 				</table>
 				
 				</form>
-			</div>
-			<div id="pusty">&nbsp;
-			</div>
+			</div><br>
 			<div id="prawy1">
 				<span class="naglowek">Wpisz z palca</span><br><br>
 				<form action="wpisz.jsp" method="get">
-					<table>
+					<table align="center">
 						<tr>
 							<td>
 							<b>Liczba punktów</b>
 							</td>
 							<td>
-								<input type="text" name="qty" size="15">
+								<input type="text" title="Liczba punktów do wprowadzenia" name="qty" size="15">
 							</td>
 						</tr>
 						<tr>
@@ -74,6 +72,7 @@
 					</table>
 				</form>
 			</div>
+						
 		</div>
 	</div>
 	<div id="footer">

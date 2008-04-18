@@ -31,7 +31,7 @@
 				<a href="licz.jsp" title="Obliczanie pochodnej ze wzoru funkcji">Ze wzoru</a>
 			</li>
 			<li>
-				<a href="index2.html" title="Obliczanie pochodnej funkcji zadanej punktami">Dyskretnie</a>
+				<a href="index2.jsp" title="Obliczanie pochodnej funkcji zadanej punktami">Dyskretnie</a>
 			</li>
 			<li>
 				<a href="badania.jsp" title="Badanie dokładności różniczkowania numerycznego">Badanie</a>
@@ -51,7 +51,7 @@
 						<b>Funkcja <var>x</var></b> 
 					</td>
 					<td>
-						<input type="text" name="wyr" title="Np. (cos(x)^2)*x^3" size="50">
+						<input type="text" name="wyr" title="Wzór funkcji x, np. (cos(x)^2)*x^3" size="50">
 					</td>
 				</tr>
 				<tr id="poch">

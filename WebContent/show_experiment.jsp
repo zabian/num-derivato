@@ -27,7 +27,7 @@ double p;
 				<a href="licz.jsp" title="Obliczanie pochodnej ze wzoru funkcji">Ze wzoru</a>
 			</li>
 			<li>
-				<a href="index2.html" title="Obliczanie pochodnej funkcji zadanej punktami">Dyskretnie</a>
+				<a href="index2.jsp" title="Obliczanie pochodnej funkcji zadanej punktami">Dyskretnie</a>
 			</li>
 			<li>
 				<a href="badania.jsp" title="Badanie dokładności różniczkowania numerycznego">Badanie</a>

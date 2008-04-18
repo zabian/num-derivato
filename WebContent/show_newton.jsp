@@ -67,11 +67,8 @@
 			
 			%>
 			
-			<table>
+			<table width="120">
 				<tr align="center">
-					<td>
-						<b><var>i</var></b> &nbsp;
-					</td>
 					<td>
 						<b><var>x<sub>i</sub></var></b>
 					</td>
@@ -82,18 +79,15 @@
 				<%for(int i=0; i<ob.size();i++){%>
 				<tr align="center">
 					<td>
-						<b><%=i %></b>&nbsp;
+						<input type="text" readonly="readonly" value="<%=ob.get(i).getX() %>" size="15">
 					</td>
 					<td>
-						<input type="text" readonly="readonly" value="<%=ob.get(i).getX() %>" title="x<%=i %>" size="15">
-					</td>
-					<td>
-						<input type="text" readonly="readonly" value="<%=ob.get(i).getY() %>" title="y<%=i %>" size="15">
+						<input type="text" readonly="readonly" value="<%=ob.get(i).getY() %>" size="15">
 					</td>
 				</tr>
 				<%} %>
 			</table>
-			<br><a href="punkty.txt">blabla</a>
+			
 			<%
 			t=new double[ob.size()][ob.size()];
 			for (int i=0;i<ob.size();i++){
