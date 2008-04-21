@@ -41,6 +41,6 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>PointsFileMaker</servlet-name>
-    <url-pattern>/punkty.txt</url-pattern>
+    <url-pattern>/punkty.csv</url-pattern>
   </servlet-mapping>
 </web-app>

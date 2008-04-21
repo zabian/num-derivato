@@ -1,16 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@page import="java.io.BufferedReader"%>
-<%@page import="java.io.InputStream"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="logic.Punkt"%>
-<%@page import="org.apache.commons.fileupload.*"%>
-<%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
-<%@page import="org.apache.commons.fileupload.util.Streams"%>
-
-<%@page import="java.io.InputStreamReader"%>
-<%@page import="java.util.StringTokenizer"%>
 <%@page import="logic.Newton"%>
 <html>
 <head>
@@ -68,7 +60,7 @@
 			%>
 			
 			<table>
-				<tr align="center">
+				<tr align="center" style="border-bottom: 2px solid">
 					<td>
 						<b><var>i</var></b> &nbsp;
 					</td>
@@ -93,7 +85,7 @@
 				</tr>
 				<%} %>
 			</table>
-			<br><a href="punkty.txt">blabla</a>
+			<br><a href="punkty.csv">punkty.csv</a>
 			<%
 			t=new double[ob.size()][ob.size()];
 			for (int i=0;i<ob.size();i++){
@@ -121,34 +113,22 @@
 			<br><br>
 			Wielomian interpolacyjny Newtona ma wzór: <br>
 			<var>w</var>(<var>x</var>)= <%
-			for (int i=0; i<ob.size(); i++){%>
-				<%=t[i][i]%>
-				<%
-				for(int j=0; j<i; j++){
-					%>(<var>x</var>
-					<%if(ob.get(j).getX()>0) {
-						%>-<%=ob.get(j).getX()%><%
-					}
-					else%>+<%=(-1)*ob.get(j).getX()%>)<%
-				}
-				if (i<ob.size()-1 && t[i+1][i+1]>0){%>
-					+<%
-				}
-			}
 			double[] k=new double[ob.size()];
 			for (int i=0; i<ob.size(); i++){
 				k[i]=t[i][i];
 			}
-			Newton in= new Newton();%>
+			Newton in= new Newton(ob);%>
+			<%=in.getFormula() %> &nbsp;&nbsp;<a href="newton_deriv.jsp">pochodna</a>
 			<br><br>
-			<%=in.getFormula(ob,k) %>
-			<br><br>
-			<%=in.horner(-1,ob,k,0) %>
+			<%=in.horner(3,0) %>
 			<br><br>
 			<%=in.getFoo(ob,k) %>
 			<br><br>
 			<%=in.getHTMLClasic(ob,k) %>
-			<% request.getSession().setAttribute("punkty",ob); %>
+			<% request.getSession().setAttribute("punkty",ob); 
+			   request.getSession().setAttribute("interpolacja",in);%>
+			
+			
 			<%
 					/*
 					//PrintWriter pw = new PrintWriter(
@@ -165,9 +145,6 @@
 			//byte[] tab=request.getParameter("bbb").getBytes();
 			%>
 			
-			<br><br>
-			<table align="center"><tr><td><img src="imageMaker?" align="middle"></td></tr></table>
-
 		</div>
 	</div>
 	<div id="footer">

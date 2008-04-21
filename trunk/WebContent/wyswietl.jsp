@@ -166,11 +166,11 @@
 			for (int i=0; i<ob.size(); i++){
 				k[i]=t[i][i];
 			}
-			Newton in= new Newton();%>
+			Newton in= new Newton(ob);%>
 			<br><br>
-			<%=in.getFormula(ob,k) %>
+			<%=in.getFormula() %>
 			<br><br>
-			<%=in.horner(-1,ob,k,0) %>
+			<%=in.horner(-1,0) %>
 			<br><br>
 			<%=in.getFoo(ob,k) %>
 			<br><br>

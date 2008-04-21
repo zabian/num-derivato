@@ -4,9 +4,41 @@ import java.util.ArrayList;
 
 
 public class Newton{
+	ArrayList<Punkt> ob;
+	double[] t;
+	double[][] ilorazy;
+	
+	public Newton(ArrayList<Punkt> ob) {
+		super();
+		this.ob = ob;
+		t=new double[ob.size()];
+		ilorazy=new double[ob.size()][ob.size()];
+		wspolczynniki();		
+	}
+
+	double setIlorazy(int i,int j){
+		if (j==0){
+			return ilorazy[i][j];
+		}
+		else{
+			ilorazy[i][j]=(setIlorazy(i,j-1)-setIlorazy(i-1,j-1))/(ob.get(i).getX()-ob.get(i-j).getX());
+			return ilorazy[i][j];
+		}
+			
+	}
+	
+	void wspolczynniki(){
+		for (int i=0; i<ob.size(); i++){
+			ilorazy[i][0]=ob.get(i).getY();
+		}
+		ilorazy[ob.size()-1][ob.size()-1]=setIlorazy(ob.size()-1,ob.size()-1);
+		for (int i=0; i<ob.size(); i++){
+			t[i]=ilorazy[i][i];
+		}
+	}
 	
 	
-	public String getFormula(ArrayList<Punkt> ob, double t[]){
+	public String getFormula(){
 		String f="";
 		boolean byl=false;
 		for (int i=0; i<t.length; i++){
@@ -121,15 +153,15 @@ public class Newton{
 		
 	}
 	
-	public String getHTMLClasic(ArrayList<Punkt> p, double t[]) {
+	public String getHTMLClasic(ArrayList<Punkt> ob, double t[]) {
 		String wzor="";
 		boolean byl=false;
-		double tab[]=new double[p.size()];
-		for (int i=0; i<p.size(); i++){
+		double tab[]=new double[ob.size()];
+		for (int i=0; i<ob.size(); i++){
 			tab[i]=0;
 		}
-		wspol(p, t, tab, 0);
-		for (int i=0; i<p.size(); i++){
+		wspol(ob, t, tab, 0);
+		for (int i=0; i<ob.size(); i++){
 			System.out.println(tab[i]);
 			if (tab[i]!=0){
 				if (tab[i]>0 && byl){
@@ -146,12 +178,12 @@ public class Newton{
 		return wzor;
 	}
 	
-	public double horner(double x, ArrayList<Punkt> p, double t[], int n){
+	public double horner(double x, int n){
 		
 		double wynik=0;
-		if (n==p.size()-2) return x+(-1)*p.get(n).getX();
-		wynik=t[n]+(x+(-1)*p.get(n).getX())*horner(x,p,t,n+1);
-		
+		if (n==ob.size()-1) return t[n];
+		wynik=t[n]+(x-ob.get(n).getX())*horner(x,n+1);
+		System.out.println("wynik"+n+"= "+wynik);
 		return wynik;
 	}
 
