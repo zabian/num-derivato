@@ -95,31 +95,18 @@
 			%>
 			
 			<br><br>
-			<table width="200">
-			<%for(int i=0; i<ob.size(); i++ ){%>
-			<tr>
-				<%for(int j=0; j<ob.size(); j++){ %>
-				<td>
-					<%if (i==j){%><b>
-					<%=t[i][j] %></b>
-					<%}
-					else{%><%=t[i][j] %>
-					<%} %>
-				</td><%
-				}%>
-			</tr><%
-			}%>
-			</table>
-			<br><br>
-			<span class="naglowek">Wielomian interpolacyjny Newtona ma wzór:</span> <br>
-			<b><var>w</var>(<var>x</var>)</b>= <%
+			<span class="naglowek">Wielomian interpolacyjny Newtona:</span> <br>
+			<big><b><var>w(x)</var></b>= <%
 			double[] k=new double[ob.size()];
 			for (int i=0; i<ob.size(); i++){
 				k[i]=t[i][i];
 			}
 			Newton in= new Newton(ob);%>
-			<%=in.getFormula() %> &nbsp;&nbsp;<a href="newton_deriv.jsp">pochodna</a>
-								  &nbsp;&nbsp;<a href="#" onclick="javascript:document.getElementById('roznice').style.visibility='visible'">ekstrapolacja</a>
+			<%=in.getFormula() %></big> &nbsp;&nbsp; <a href="newton_deriv.jsp">pochodna</a>
+								  &nbsp;&nbsp;<a href="#" onclick="javascript:document.getElementById('roznice').style.visibility='visible'">interpolacja</a>
+			<br><br>
+			<span class="naglowek">Postać klasyczna wielomianu interpolacyjnego</span> <br>
+			<big><b><var>w(x)</var></b>= <%=in.getHTMLClasic(ob,k) %></big>
 			<br><br>
 			<%=in.horner(3,0) %>
 			<br><br>

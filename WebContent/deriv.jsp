@@ -41,13 +41,13 @@
 			<jsp:useBean id="licz" class="web.CountBean" scope="session"/>
 			<jsp:setProperty name="licz" property="*"/>
 			<form method="post" action="deriv.jsp">
-			<table align="center" bgcolor="gray">
+			<table bgcolor="gray">
 				<tr>
 					<td align="right">
 						<b>Funkcja <var>x</var></b> 
 					</td>
 					<td>
-						<input type="text" name="wyr" id="wyr1" value="<%=licz.getWyr()!=null?licz.getWyr():""  %>" size="50">
+						<input type="text" name="wyr" id="wyr1" title="Wzór funkcji x, np. (cos(x)^2)*x^3" value="<%=licz.getWyr()!=null?licz.getWyr():""  %>" size="50">
 					</td>
 				</tr>
 				<tr>
@@ -55,7 +55,7 @@
 						<b><var>x<sub>0</sub></var></b>
 					</td>
 					<td>
-						<input type="text" name="x" id="x1" value="<%=licz.getX()!=null?licz.getX():"" %>" size="15" >
+						<input type="text" name="x" id="x1" title="Punkt różniczkowania, np. 3.453" value="<%=licz.getX()!=null?licz.getX():"" %>" size="15" >
 					</td>
 				</tr>
 				<tr>
@@ -63,7 +63,7 @@
 						<b><var>h</var></b> 
 					</td>
 					<td>
-						<input type="text" name="h" id="h" value="<%=licz.getH()!=null?licz.getH():"" %>" size="15">
+						<input type="text" name="h" id="h" title="Krok różniczkowania, np. 0.001" value="<%=licz.getH()!=null?licz.getH():"" %>" size="15">
 					</td>
 				</tr>
 				<tr>
@@ -71,7 +71,7 @@
 						<b>Pochodna</b>
 					</td> 
 					<td>
-						<select name="pochodna" style="width: 121px">
+						<select name="pochodna" title="Stopień pochodnej" style="width: 121px">
 							<option <%=licz.getPochodna().equals("wszystkie")?"selected=selected":"" %>>wszystkie</option>
 							<option <%=licz.getPochodna().equals("pierwsza")?"selected=selected":"" %>>pierwsza</option>
 							<option <%=licz.getPochodna().equals("druga")?"selected=selected":"" %>>druga</option>					
@@ -83,7 +83,7 @@
 						<b>Iloraz</b>
 					</td> 
 					<td>
-						<select name="iloraz" style="width: 121px">
+						<select name="iloraz" title="Iloraz różnicowy" style="width: 121px">
 							<option <%=licz.getIloraz().equals("wszystkie")?"selected=selected":"" %>>wszystkie</option>
 							<option <%=licz.getIloraz().equals("wsteczny")?"selected=selected":"" %>>wsteczny</option>
 							<option <%=licz.getIloraz().equals("centralny")?"selected=selected":"" %>>centralny</option>
@@ -96,8 +96,9 @@
 			</table>
 			</form>
 			<br><br>
+			<hr align="left" style="background-color: #000000; width: 70%"><br>
 			<%if (licz.getWyr()!=null && licz.getX()!=null && licz.getH()!=null) {%>
-			<table align="center">
+			<table>
 				<tr>
 					<td align="right">
 						<b>&nbsp;Funkcja <var>x</var></b>

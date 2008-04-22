@@ -88,7 +88,7 @@
 							<option>wsteczny</option>
 							<option>centralny</option>
 							<option>do przodu</option>
-							<option>wszystkie</option>
+							<option selected="selected">wszystkie</option>
 						</select>
 					</td>
 				</tr>
