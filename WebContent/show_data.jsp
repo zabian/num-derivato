@@ -111,20 +111,38 @@
 			}%>
 			</table>
 			<br><br>
-			Wielomian interpolacyjny Newtona ma wzór: <br>
-			<var>w</var>(<var>x</var>)= <%
+			<span class="naglowek">Wielomian interpolacyjny Newtona ma wzór:</span> <br>
+			<b><var>w</var>(<var>x</var>)</b>= <%
 			double[] k=new double[ob.size()];
 			for (int i=0; i<ob.size(); i++){
 				k[i]=t[i][i];
 			}
 			Newton in= new Newton(ob);%>
 			<%=in.getFormula() %> &nbsp;&nbsp;<a href="newton_deriv.jsp">pochodna</a>
+								  &nbsp;&nbsp;<a href="#" onclick="javascript:document.getElementById('roznice').style.visibility='visible'">ekstrapolacja</a>
 			<br><br>
 			<%=in.horner(3,0) %>
 			<br><br>
 			<%=in.getFoo(ob,k) %>
 			<br><br>
 			<%=in.getHTMLClasic(ob,k) %>
+			<div id="roznice" style="visibility: hidden">
+			<table width="200">
+				<%for(int i=0; i<ob.size(); i++ ){%>
+				<tr>
+					<%for(int j=0; j<ob.size(); j++){ %>
+					<td>
+						<%if (i==j){%><b>
+						<%=t[i][j] %></b>
+						<%}
+						else{%><%=t[i][j] %>
+						<%} %>
+					</td><%
+					}%>
+				</tr><%
+			}%>
+			</table>
+			</div>
 			<% request.getSession().setAttribute("punkty",ob); 
 			   request.getSession().setAttribute("interpolacja",in);%>
 			

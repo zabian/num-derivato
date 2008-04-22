@@ -136,7 +136,7 @@ double p;
 			
 			<%if(badanie.getPochodna().equals("druga") || badanie.getPochodna().equals("wszystkie")){ %>
 			<%double p2=parser.getValue(badanie.getWzorPoch2(), Double.parseDouble(badanie.getX())); %>
-			<div id="prawy" style="<%=badanie.getPochodna().equals("wszystkie")?"padding-left:320px":"" %>">
+			<div id="prawy" style="<%=badanie.getPochodna().equals("wszystkie")?"padding-left:340px":"" %>">
 					<span class="naglowek">Druga pochodna</span><br><br>&#x0009;
 					<%if (badanie.getIloraz().equals("wsteczny") || badanie.getIloraz().equals("wszystkie")){ %>
 						
