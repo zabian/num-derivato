@@ -37,7 +37,7 @@ Newton in=(Newton) request.getSession().getAttribute("interpolacja");%>
 	<div id="main">
 		<div id="content">
 			<span class="naglowek">Obliczanie pochodnej z wielomianu interpolacyjnego</span><br><br>
-			<form action="newton_deriv.jsp">
+			<form action="show_nderiv.jsp">
 				<table>
 					<tr>
 						<td align="right">
