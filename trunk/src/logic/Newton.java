@@ -167,9 +167,19 @@ public class Newton{
 				if (tab[i]>0 && byl){
 					wzor+="+";
 				}
-				wzor+=tab[i];
+				if (tab[i]==-1 && i>0) wzor+="-";
+				if (Math.abs(tab[i])!=1 || i==0){
+					wzor+=tab[i];
+					if (i>1){
+						wzor+="*";
+					}
+				}
 				if (i>0){
-					wzor+="*<var>x<sup>"+i+"</sup></var>";
+					wzor+="<var>x";
+					if (i>1) {
+						wzor+="<sup>"+i+"</sup>";
+					}
+					wzor+="</var>";
 				}
 				byl=true;
 			}
