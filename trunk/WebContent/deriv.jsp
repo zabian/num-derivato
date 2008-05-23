@@ -212,10 +212,7 @@
 			</table>
 			<%} %>
 			<br><br>
-			
-			<table align="center"><tr><td><img src=imageMaker1?></td></tr></table>
-			<br>
-			<img src=wykres.png?>
+			<img align="middle" src=wykres.png?type=der>
 		</div>
 		
 		<div id="footer">

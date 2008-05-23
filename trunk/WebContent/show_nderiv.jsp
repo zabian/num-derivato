@@ -6,6 +6,7 @@
 <%@page import="logic.Newton"%>
 <%@page import="web.NewtonBean"%>
 <%@page import="logic.NewtonPochodna"%>
+<%@page import="logic.Rounder"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -130,7 +131,7 @@ NewtonPochodna n=new NewtonPochodna(in);%>
 										<b>progresywny</b>
 									</td>
 									<td>
-										<input type="text" value="<%=n.derivForward(ob.get(i).getX(),Double.parseDouble(newton.getH()),1) %>" size="20">
+										<input type="text" value="<%=Rounder.round(n.derivForward(ob.get(i).getX(),Double.parseDouble(newton.getH()),1), Integer.parseInt(newton.getPrecyzja())) %>" size="20">
 									</td>
 								</tr>
 							<%} %>
@@ -140,7 +141,7 @@ NewtonPochodna n=new NewtonPochodna(in);%>
 										<b>wsteczny</b>
 									</td>
 									<td>
-										<input type="text" value="<%=n.derivBack(ob.get(i).getX(),Double.parseDouble(newton.getH()),1) %>" size="20">
+										<input type="text" value="<%=Rounder.round(n.derivBack(ob.get(i).getX(),Double.parseDouble(newton.getH()),1), Integer.parseInt(newton.getPrecyzja())) %>" size="20">
 									</td>
 								</tr>
 							<%} %>
@@ -150,7 +151,7 @@ NewtonPochodna n=new NewtonPochodna(in);%>
 										<b>centralny</b>
 									</td>
 									<td>
-										<input type="text" value="<%=n.derivCentral(ob.get(i).getX(),Double.parseDouble(newton.getH()),1) %>" size="20">
+										<input type="text" value="<%=Rounder.round(n.derivCentral(ob.get(i).getX(),Double.parseDouble(newton.getH()),1), Integer.parseInt(newton.getPrecyzja())) %>" size="20">
 									</td>
 								</tr>
 							<%} %>
@@ -172,7 +173,7 @@ NewtonPochodna n=new NewtonPochodna(in);%>
 										<b>progresywny</b>
 									</td>
 									<td>
-										<input type="text" value="<%=n.derivForward(Double.parseDouble(newton.getX()),Double.parseDouble(newton.getH()),1) %>" size="20">
+										<input type="text" value="<%=Rounder.round(n.derivForward(Double.parseDouble(newton.getX()),Double.parseDouble(newton.getH()),1), Integer.parseInt(newton.getPrecyzja())) %>" size="20">
 									</td>
 								</tr>
 							<%} %>
@@ -182,7 +183,7 @@ NewtonPochodna n=new NewtonPochodna(in);%>
 										<b>wsteczny</b>
 									</td>
 									<td>
-										<input type="text" value="<%=n.derivBack(Double.parseDouble(newton.getX()),Double.parseDouble(newton.getH()),1) %>" size="20">
+										<input type="text" value="<%=Rounder.round(n.derivBack(Double.parseDouble(newton.getX()),Double.parseDouble(newton.getH()),1), Integer.parseInt(newton.getPrecyzja())) %>" size="20">
 									</td>
 								</tr>
 							<%} %>
@@ -192,7 +193,7 @@ NewtonPochodna n=new NewtonPochodna(in);%>
 										<b>centralny</b>
 									</td>
 									<td>
-										<input type="text" value="<%=n.derivCentral(Double.parseDouble(newton.getX()),Double.parseDouble(newton.getH()),1) %>" size="20">
+										<input type="text" value="<%=Rounder.round(n.derivCentral(Double.parseDouble(newton.getX()),Double.parseDouble(newton.getH()),1), Integer.parseInt(newton.getPrecyzja())) %>" size="20">
 									</td>
 								</tr>
 							<%} %>
@@ -223,7 +224,7 @@ NewtonPochodna n=new NewtonPochodna(in);%>
 										<b>progresywny</b>
 									</td>
 									<td>
-										<input type="text" value="<%=n.derivForward(ob.get(i).getX(),Double.parseDouble(newton.getH()),2) %>" size="20">
+										<input type="text" value="<%=Rounder.round(n.derivForward(ob.get(i).getX(),Double.parseDouble(newton.getH()),2), Integer.parseInt(newton.getPrecyzja())) %>" size="20">
 									</td>
 								</tr>
 							<%} %>
@@ -233,7 +234,7 @@ NewtonPochodna n=new NewtonPochodna(in);%>
 										<b>wsteczny</b>
 									</td>
 									<td>
-										<input type="text" value="<%=n.derivBack(ob.get(i).getX(),Double.parseDouble(newton.getH()),2) %>" size="20">
+										<input type="text" value="<%=Rounder.round(n.derivBack(ob.get(i).getX(),Double.parseDouble(newton.getH()),2), Integer.parseInt(newton.getPrecyzja())) %>" size="20">
 									</td>
 								</tr>
 							<%} %>
@@ -243,7 +244,7 @@ NewtonPochodna n=new NewtonPochodna(in);%>
 										<b>centralny</b>
 									</td>
 									<td>
-										<input type="text" value="<%=n.derivCentral(ob.get(i).getX(),Double.parseDouble(newton.getH()),2) %>" size="20">
+										<input type="text" value="<%=Rounder.round(n.derivCentral(ob.get(i).getX(),Double.parseDouble(newton.getH()),2), Integer.parseInt(newton.getPrecyzja())) %>" size="20">
 									</td>
 								</tr>
 							<%} %>
@@ -265,7 +266,7 @@ NewtonPochodna n=new NewtonPochodna(in);%>
 										<b>progresywny</b>
 									</td>
 									<td>
-										<input type="text" value="<%=n.derivForward(Double.parseDouble(newton.getX()),Double.parseDouble(newton.getH()),2) %>" size="20">
+										<input type="text" value="<%=Rounder.round(n.derivForward(Double.parseDouble(newton.getX()),Double.parseDouble(newton.getH()),2), Integer.parseInt(newton.getPrecyzja())) %>" size="20">
 									</td>
 								</tr>
 							<%} %>
@@ -275,7 +276,7 @@ NewtonPochodna n=new NewtonPochodna(in);%>
 										<b>wsteczny</b>
 									</td>
 									<td>
-										<input type="text" value="<%=n.derivBack(Double.parseDouble(newton.getX()),Double.parseDouble(newton.getH()),2) %>" size="20">
+										<input type="text" value="<%=Rounder.round(n.derivBack(Double.parseDouble(newton.getX()),Double.parseDouble(newton.getH()),2), Integer.parseInt(newton.getPrecyzja())) %>" size="20">
 									</td>
 								</tr>
 							<%} %>
@@ -285,7 +286,7 @@ NewtonPochodna n=new NewtonPochodna(in);%>
 										<b>centralny</b>
 									</td>
 									<td>
-										<input type="text" value="<%=n.derivCentral(Double.parseDouble(newton.getX()),Double.parseDouble(newton.getH()),2) %>" size="20">
+										<input type="text" value="<%=Rounder.round(n.derivCentral(Double.parseDouble(newton.getX()),Double.parseDouble(newton.getH()),2), Integer.parseInt(newton.getPrecyzja())) %>" size="20">
 									</td>
 								</tr>
 							<%} %>

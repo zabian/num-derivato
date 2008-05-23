@@ -44,7 +44,7 @@ public class Newton{
 		for (int i=0; i<t.length; i++){
 			if (t[i]!=0){
 				if (t[i]>0  && byl) f+="+";
-				f+=t[i];
+				f+=Rounder.round(t[i], 3) ;
 				for (int j=0; j<i; j++){
 					f+="*(x";
 					if (ob.get(j).getX()!=0){
@@ -169,7 +169,7 @@ public class Newton{
 				}
 				if (tab[i]==-1 && i>0) wzor+="-";
 				if (Math.abs(tab[i])!=1 || i==0){
-					wzor+=tab[i];
+					wzor+=Rounder.round(tab[i], 3);
 					if (i>0){
 						wzor+="*";
 					}
