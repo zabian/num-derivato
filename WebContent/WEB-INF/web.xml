@@ -43,4 +43,14 @@
     <servlet-name>PointsFileMaker</servlet-name>
     <url-pattern>/punkty.csv</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ChartMaker</display-name>
+    <servlet-name>ChartMaker</servlet-name>
+    <servlet-class>util.ChartMaker</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChartMaker</servlet-name>
+    <url-pattern>/wykres.png</url-pattern>
+  </servlet-mapping>
 </web-app>
