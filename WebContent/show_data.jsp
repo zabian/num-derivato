@@ -146,7 +146,7 @@
 					}*/
 			//byte[] tab=request.getParameter("bbb").getBytes();
 			%>
-			
+			<img src="wykres.png?type=newton">
 		</div>
 	</div>
 	<div id="footer">
