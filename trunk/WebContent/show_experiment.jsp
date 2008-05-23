@@ -3,9 +3,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="oblicz.Pochodna"%>
 <%@page import="java.math.BigDecimal"%>
+<%@page import="logic.Rounder"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="images/math.gif" rel="SHORTCUT ICON">
 <link href="style.css" rel="stylesheet" type="text/css">
 <title>derivato - Wynik badania dokładności</title>
 </head>
@@ -43,8 +45,49 @@ double p;
 			<span class="naglowek">Wynik badania dokładności</span><br><br> 
 			<%System.out.println("++++++++:"+ badanie.getIloraz()); %>
 			
+			<table>
+				<tr>
+					<td align="right">
+						<b>Funkcja <var>x</var></b>
+					</td>
+					<td>
+						<input type="text" value="<%=badanie.getWyr() %>" size="50" readonly="readonly">
+					</td>
+				</tr>
+				<%if (badanie.getPochodna().equals("pierwsza") || badanie.getPochodna().equals("wszystkie")){%>
+				<tr>
+					<td align="right">
+						<b>I pochodna</b>
+					</td>
+					<td>
+						<input type="text" value="<%=badanie.getWzorPoch() %>" size="50" readonly="readonly">
+					</td>
+				</tr>
+				<%}%>
+				<%if (badanie.getPochodna().equals("druga") || badanie.getPochodna().equals("wszystkie")){%>
+				<tr>
+					<td align="right">
+						<b>II pochodna</b>
+					</td>
+					<td>
+						<input type="text" value="<%=badanie.getWzorPoch2() %>" size="50" readonly="readonly">
+					</td>
+				</tr>
+				<%}%>
+				<tr>
+					<td align="right">
+						<b><var>x</var><sub>0</sub> </b>
+					</td>
+					<td>
+						<input type="text" value="<%=badanie.getX() %>" size="15" readonly="readonly">
+					</td>
+				</tr>
+			</table>
+			<br>
+			<hr align="left" style="background-color: #000000; width: 70%"><br>
+			
 			<%if(badanie.getPochodna().equals("pierwsza") || badanie.getPochodna().equals("wszystkie")){ %>
-			<%double p1=parser.getValue(badanie.getWzorPoch(), Double.parseDouble(badanie.getX())); %>
+			<%double p1=Rounder.round(parser.getValue(badanie.getWzorPoch(), Double.parseDouble(badanie.getX())), Integer.parseInt(badanie.getPrecyzja())); %>
 			<div id="lewy" style="<%=badanie.getPochodna().equals("pierwsza")?"float:none;":"float:left;" %><%=badanie.getPochodna().equals("wszystkie")?"border-right:2px solid #000000":"" %>" >
 					<span class="naglowek">Pierwsza pochodna</span><br><br>
 					<%if (badanie.getIloraz().equals("wsteczny") || badanie.getIloraz().equals("wszystkie")){ %>
@@ -64,7 +107,7 @@ double p;
 										<%=h[i] %>
 									</td>
 									<td>
-										<%p=new BigDecimal(parser.derivBack(badanie.getWyr(),Double.parseDouble(badanie.getX()),h[i],1)).setScale(4,BigDecimal.ROUND_HALF_UP).doubleValue(); %>
+										<%p=Rounder.round(parser.derivBack(badanie.getWyr(),Double.parseDouble(badanie.getX()),h[i],1), Integer.parseInt(badanie.getPrecyzja())); %>
 										<input value="<%=p %>" size="15" readonly="readonly">
 									</td>
 									<td>
@@ -92,7 +135,7 @@ double p;
 										<%=h[i] %>
 									</td>
 									<td>
-										<%p=new BigDecimal(parser.derivCentral(badanie.getWyr(),Double.parseDouble(badanie.getX()),h[i],1)).setScale(4,BigDecimal.ROUND_HALF_UP).doubleValue(); %>
+										<%p=Rounder.round(parser.derivCentral(badanie.getWyr(),Double.parseDouble(badanie.getX()),h[i],1), Integer.parseInt(badanie.getPrecyzja())); %>
 										<input value="<%=p %>" size="15" readonly="readonly">
 									</td>
 									<td>
@@ -120,7 +163,7 @@ double p;
 										<%=h[i] %>
 									</td>
 									<td>
-										<%p=new BigDecimal(parser.derivForward(badanie.getWyr(),Double.parseDouble(badanie.getX()),h[i],1)).setScale(4,BigDecimal.ROUND_HALF_UP).doubleValue(); %>
+										<%p=Rounder.round(parser.derivForward(badanie.getWyr(),Double.parseDouble(badanie.getX()),h[i],1), Integer.parseInt(badanie.getPrecyzja())); %>
 										<input value="<%=p %>" size="15" readonly="readonly">
 									</td>
 									<td>
@@ -135,7 +178,7 @@ double p;
 			<%} %>
 			
 			<%if(badanie.getPochodna().equals("druga") || badanie.getPochodna().equals("wszystkie")){ %>
-			<%double p2=parser.getValue(badanie.getWzorPoch2(), Double.parseDouble(badanie.getX())); %>
+			<%double p2=Rounder.round(parser.getValue(badanie.getWzorPoch2(), Double.parseDouble(badanie.getX())), Integer.parseInt(badanie.getPrecyzja())); %>
 			<div id="prawy" style="<%=badanie.getPochodna().equals("wszystkie")?"padding-left:340px":"" %>">
 					<span class="naglowek">Druga pochodna</span><br><br>&#x0009;
 					<%if (badanie.getIloraz().equals("wsteczny") || badanie.getIloraz().equals("wszystkie")){ %>
@@ -155,7 +198,7 @@ double p;
 										<%=h[i] %>
 									</td>
 									<td>
-										<%p=new BigDecimal(parser.derivBack(badanie.getWyr(),Double.parseDouble(badanie.getX()),h[i],2)).setScale(4,BigDecimal.ROUND_HALF_UP).doubleValue(); %>
+										<%p=Rounder.round(parser.derivBack(badanie.getWyr(),Double.parseDouble(badanie.getX()),h[i],2), Integer.parseInt(badanie.getPrecyzja())); %>
 										<input value="<%=p %>" size="15" readonly="readonly">
 									</td>
 									<td>
@@ -183,7 +226,7 @@ double p;
 										<%=h[i] %>
 									</td>
 									<td>
-										<%p=new BigDecimal(parser.derivCentral(badanie.getWyr(),Double.parseDouble(badanie.getX()),h[i],2)).setScale(4,BigDecimal.ROUND_HALF_UP).doubleValue(); %>
+										<%p=Rounder.round(parser.derivCentral(badanie.getWyr(),Double.parseDouble(badanie.getX()),h[i],2), Integer.parseInt(badanie.getPrecyzja())); %>
 										<input value="<%=p %>" size="15" readonly="readonly">
 									</td>
 									<td>
@@ -211,7 +254,7 @@ double p;
 										<%=h[i] %>
 									</td>
 									<td>
-										<%p=new BigDecimal(parser.derivForward(badanie.getWyr(),Double.parseDouble(badanie.getX()),h[i],2)).setScale(4,BigDecimal.ROUND_HALF_UP).doubleValue(); %>
+										<%p=Rounder.round(parser.derivForward(badanie.getWyr(),Double.parseDouble(badanie.getX()),h[i],2), Integer.parseInt(badanie.getPrecyzja())); %>
 										<input value="<%=p %>" size="15" readonly="readonly">
 									</td>
 									<td>

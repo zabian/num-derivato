@@ -24,6 +24,7 @@ function reset(){
 </script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="images/math.gif" rel="SHORTCUT ICON">
 <link href="style.css" rel="stylesheet" type="text/css">
 <title>derivato - Obliczanie pochodnej funkcji ze wzoru</title>
 </head>
@@ -77,7 +78,15 @@ function reset(){
 						<b><var>h</var></b> 
 					</td>
 					<td>
-						<input type="text" name="h" title="Krok różniczkowania, np. 0.001" value="<%=licz.getH()!=null?licz.getH():"" %>" ondblclick="value=''" size="15">
+						<input type="text" name="h" title="Krok różniczkowania, np. 0.001" value="<%=licz.getH()!=null?licz.getH():"0.001" %>" ondblclick="value=''" size="15">
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<b>Precyzja</b>
+					</td>
+					<td>
+						<input type="text" name="precyzja" title="Liczba miejsc po przecinku" value="<%=licz.getPrecyzja()!=null?licz.getPrecyzja():"6" %>" ondblclick="value=''" size="15">
 					</td>
 				</tr>
 				<tr>

@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="images/math.gif" rel="SHORTCUT ICON">
 <link href="style.css" rel="stylesheet" type="text/css">
 <title>derivato - Wybór pliku z danymi</title>
 </head>
@@ -56,7 +57,7 @@
 				</form>
 			</div><br>
 			<div id="prawy1">
-				<span class="naglowek2">Wpisz z palca</span><br><br>
+				<span class="naglowek2">Wprowadź współrzędne</span><br><br>
 				<form action="wpisz.jsp" method="get">
 					<table align="center">
 						<tr>

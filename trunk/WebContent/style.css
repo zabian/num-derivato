@@ -45,9 +45,8 @@ margin:0px;
 }
 #header ul a:link, #header ul a:visited{
 display:block;
-padding: 5px 10px;
-border-left: 1px #000000 solid;
-border-right: 1px #000000 solid;
+padding: 1px 10px;
+
 }
 #header ul li a:hover {
 	background: #EEEFF1;
@@ -85,10 +84,10 @@ margin-left:10px;
 	position:relative;
 	color:#ffffff;
 	background-color:#000000;
-	font-size:11px;
+	font-size:10px;
 	height:auto;
 	border-top:#3399ff 3px solid;
-	padding: 1px 0px;
+	padding: 0px 0px;
 	clear:both;
 }
 #mainList, #opcje{
@@ -125,13 +124,13 @@ margin-left:10px;
 	}
 TEXTAREA, INPUT, SELECT{
 font-family: Verdana, Arial, Helvetica, sans-serif;
-	border:1px solid #AAB2BB; font-size: 11px;
+	border:1px solid #AAB2BB; font-size: 10px;
 	color: #334455;
 	background-color: #EEEFF1;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 input:hover,select:hover{
-	border:1px solid #3399ff; font-size: 11px;
+	border:1px solid #3399ff; font-size: 10px;
 	color: #334455;
 	background-color: #EEEFF1;
 

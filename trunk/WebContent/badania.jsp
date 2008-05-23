@@ -15,6 +15,7 @@
 </script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="images/math.gif" rel="SHORTCUT ICON">
 <link href="style.css" rel="stylesheet" type="text/css">
 <title>derivato - Badanie dokładności</title>
 </head>
@@ -76,7 +77,15 @@
 						<b><var>x<sub>0</sub></var></b>
 					</td>
 					<td>
-						<input type="text" name="x" title="Punkt różniczkowania, np. 3.453" size="15" >
+						<input type="text" name="x" title="Punkt różniczkowania, np. 3.453" size="15" ondblclick="value=''">
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<b>Precyzja</b>
+					</td>
+					<td>
+						<input type="text" name="precyzja" title="Liczba miejsc po przecinku" value="6" ondblclick="value=''" size="15">
 					</td>
 				</tr>
 				<tr>
