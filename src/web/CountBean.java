@@ -6,6 +6,7 @@ public class CountBean {
 	private	  String h;
 	protected String iloraz;
 	protected String pochodna;
+	protected String precyzja;
 	
 	
 	public String getWyr() {
@@ -37,6 +38,12 @@ public class CountBean {
 	}
 	public void setPochodna(String pochodna) {
 		this.pochodna = pochodna;
+	}
+	public String getPrecyzja() {
+		return precyzja;
+	}
+	public void setPrecyzja(String precyzja) {
+		this.precyzja = precyzja;
 	}
 		
 }

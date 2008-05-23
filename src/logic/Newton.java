@@ -170,7 +170,7 @@ public class Newton{
 				if (tab[i]==-1 && i>0) wzor+="-";
 				if (Math.abs(tab[i])!=1 || i==0){
 					wzor+=tab[i];
-					if (i>1){
+					if (i>0){
 						wzor+="*";
 					}
 				}

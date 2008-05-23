@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="images/math.gif" rel="SHORTCUT ICON">
 <link href="style.css" rel="stylesheet" type="text/css">
 <title>derivato - Wybór pliku z danymi</title>
 </head>
@@ -69,6 +70,14 @@ Newton in=(Newton) request.getSession().getAttribute("interpolacja");%>
 							<input type="text" name="h" title="Krok różniczkowania, np. 0.01" value="0.001" ondblclick="value=''" size="15">
 						</td>
 					</tr>
+					<tr>
+					<td align="right">
+						<b>Precyzja</b>
+					</td>
+					<td>
+						<input type="text" name="precyzja" title="Liczba miejsc po przecinku" value="6" ondblclick="value=''" size="15">
+					</td>
+				</tr>
 					<tr>
 						<td align="right">
 							<b>Pochodna</b>

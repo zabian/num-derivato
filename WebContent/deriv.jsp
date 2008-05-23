@@ -4,12 +4,14 @@
 <%@page import="oblicz.Pochodna"%>
 <%@page import="java.math.BigDecimal"%>
 
+<%@page import="logic.Rounder"%>
 <html>
 <%! Pochodna p=new Pochodna();%>
 
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="images/math.gif" rel="SHORTCUT ICON">
 <link href="style.css" rel="stylesheet" type="text/css">
 <title>derivato - Obliczanie pochodnej funkcji ze wzoru</title>
 </head>
@@ -47,7 +49,7 @@
 						<b>Funkcja <var>x</var></b> 
 					</td>
 					<td>
-						<input type="text" name="wyr" id="wyr1" title="Wzór funkcji x, np. (cos(x)^2)*x^3" value="<%=licz.getWyr()!=null?licz.getWyr():""  %>" size="50">
+						<input type="text" name="wyr" id="wyr1" title="Wzór funkcji x, np. (cos(x)^2)*x^3" value="<%=licz.getWyr()!=null?licz.getWyr():""  %>" ondblclick="value=''" size="50">
 					</td>
 				</tr>
 				<tr>
@@ -55,7 +57,7 @@
 						<b><var>x<sub>0</sub></var></b>
 					</td>
 					<td>
-						<input type="text" name="x" id="x1" title="Punkt różniczkowania, np. 3.453" value="<%=licz.getX()!=null?licz.getX():"" %>" size="15" >
+						<input type="text" name="x" id="x1" title="Punkt różniczkowania, np. 3.453" value="<%=licz.getX()!=null?licz.getX():"" %>" ondblclick="value=''" size="15" >
 					</td>
 				</tr>
 				<tr>
@@ -63,7 +65,15 @@
 						<b><var>h</var></b> 
 					</td>
 					<td>
-						<input type="text" name="h" id="h" title="Krok różniczkowania, np. 0.001" value="<%=licz.getH()!=null?licz.getH():"" %>" size="15">
+						<input type="text" name="h" id="h" title="Krok różniczkowania, np. 0.001" value="<%=licz.getH()!=null?licz.getH():"" %>" ondblclick="value=''" size="15">
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<b>Precyzja</b>
+					</td>
+					<td>
+						<input type="text" name="precyzja" title="Liczba miejsc po przecinku" value="<%=licz.getPrecyzja()!=null?licz.getPrecyzja():"6" %>" ondblclick="value=''" size="15">
 					</td>
 				</tr>
 				<tr>
@@ -136,7 +146,7 @@
 						 wsteczny
 					</td>
 					<td>
-						<input value="<%=new BigDecimal( p.derivBack(licz.getWyr(), Double.parseDouble(licz.getX()), Double.parseDouble(licz.getH()),1)  ).setScale( 3, BigDecimal.ROUND_HALF_UP).doubleValue() %>" size="15" readonly="readonly"><br>
+						<input value="<%=Rounder.round(p.derivBack(licz.getWyr(), Double.parseDouble(licz.getX()), Double.parseDouble(licz.getH()),1), Integer.parseInt(licz.getPrecyzja()) ) %>" size="15" readonly="readonly"><br>
 					</td>
 				</tr>
 				<%} %>
@@ -146,7 +156,7 @@
 						 do przodu
 					</td>
 					<td>
-						<input value="<%=new BigDecimal( p.derivForward(licz.getWyr(), Double.parseDouble(licz.getX()), Double.parseDouble(licz.getH()),1)  ).setScale( 3, BigDecimal.ROUND_HALF_UP).doubleValue() %>" size="15" readonly="readonly"><br>
+						<input value="<%=Rounder.round(p.derivForward(licz.getWyr(), Double.parseDouble(licz.getX()), Double.parseDouble(licz.getH()),1), Integer.parseInt(licz.getPrecyzja())) %>" size="15" readonly="readonly"><br>
 					</td>
 				</tr>
 				<%} %>
@@ -156,7 +166,7 @@
 						 centralny
 					</td>
 					<td>
-						<input value="<%=new BigDecimal( p.derivCentral(licz.getWyr(), Double.parseDouble(licz.getX()), Double.parseDouble(licz.getH()),1)  ).setScale( 3, BigDecimal.ROUND_HALF_UP).doubleValue() %>" size="15" readonly="readonly"><br>
+						<input value="<%=Rounder.round(p.derivCentral(licz.getWyr(), Double.parseDouble(licz.getX()), Double.parseDouble(licz.getH()),1), Integer.parseInt(licz.getPrecyzja())) %>" size="15" readonly="readonly"><br>
 					</td>
 				</tr>
 				<%} %>
@@ -174,7 +184,7 @@
 						 wsteczny
 					</td>
 					<td>
-						<input value="<%=new BigDecimal( p.derivBack(licz.getWyr(), Double.parseDouble(licz.getX()), Double.parseDouble(licz.getH()),2)  ).setScale( 3, BigDecimal.ROUND_HALF_UP).doubleValue() %>" size="15" readonly="readonly"><br>
+						<input value="<%=Rounder.round(p.derivBack(licz.getWyr(), Double.parseDouble(licz.getX()), Double.parseDouble(licz.getH()),2), Integer.parseInt(licz.getPrecyzja())) %>" size="15" readonly="readonly"><br>
 					</td>
 				</tr>
 				<%} %>
@@ -184,7 +194,7 @@
 						 do przodu
 					</td>
 					<td>
-						<input value="<%=new BigDecimal( p.derivForward(licz.getWyr(), Double.parseDouble(licz.getX()), Double.parseDouble(licz.getH()),2)  ).setScale( 3, BigDecimal.ROUND_HALF_UP).doubleValue() %>" size="15" readonly="readonly"><br>
+						<input value="<%=Rounder.round(p.derivForward(licz.getWyr(), Double.parseDouble(licz.getX()), Double.parseDouble(licz.getH()),2), Integer.parseInt(licz.getPrecyzja())) %>" size="15" readonly="readonly"><br>
 					</td>
 				</tr>
 				<%} %>
@@ -194,7 +204,7 @@
 						 centralny
 					</td>
 					<td>
-						<input value="<%=new BigDecimal( p.derivCentral(licz.getWyr(), Double.parseDouble(licz.getX()), Double.parseDouble(licz.getH()),2)  ).setScale( 3, BigDecimal.ROUND_HALF_UP).doubleValue() %>" size="15" readonly="readonly"><br>
+						<input value="<%=Rounder.round(p.derivCentral(licz.getWyr(), Double.parseDouble(licz.getX()), Double.parseDouble(licz.getH()),2), Integer.parseInt(licz.getPrecyzja())) %>" size="15" readonly="readonly"><br>
 					</td>
 				</tr>
 				<%} %>
@@ -204,6 +214,8 @@
 			<br><br>
 			
 			<table align="center"><tr><td><img src=imageMaker1?></td></tr></table>
+			<br>
+			<img src=wykres.png?>
 		</div>
 		
 		<div id="footer">

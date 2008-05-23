@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="images/math.gif" rel="SHORTCUT ICON">
 <link href="style.css" rel="stylesheet" type="text/css">
 <title>derivato - Prezentacja danych</title>
 </head>
@@ -105,14 +106,10 @@
 			<%=in.getFormula() %></big> &nbsp;&nbsp; <a href="newton_deriv.jsp">pochodna</a>
 								  &nbsp;&nbsp;<a href="#" onclick="javascript:document.getElementById('roznice').style.visibility='visible'">interpolacja</a>
 			<br><br>
-			<span class="naglowek">Postać klasyczna wielomianu interpolacyjnego</span> <br>
+			<span class="naglowek">Postać klasyczna wielomianu interpolacyjnego:</span> <br>
 			<big><b><var>w(x)</var></b>= <%=in.getHTMLClasic(ob,k) %></big>
 			<br><br>
-			<%=in.horner(3,0) %>
-			<br><br>
-			<%=in.getFoo(ob,k) %>
-			<br><br>
-			<%=in.getHTMLClasic(ob,k) %>
+			
 			<div id="roznice" style="visibility: hidden">
 			<table width="200">
 				<%for(int i=0; i<ob.size(); i++ ){%>
