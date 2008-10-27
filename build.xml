@@ -9,7 +9,6 @@
 		<delete file="${basedir}/${projectname}App.ear" />
 		<delete file="${targetdir}/${projectname}Web.war" />
 		<delete file="${targetdir}/${projectname}App.ear" />
-
 	</target>
 	<target name="package" depends="clean">
 		<war destfile="${sourcedir}/${projectname}Web.war" webxml="${sourcedir}/WebContent/WEB-INF/web.xml">

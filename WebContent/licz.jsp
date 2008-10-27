@@ -122,7 +122,7 @@ function reset(){
 		</div>
 		</div>
 		<div id="footer">
-			<center><p>  Created by Wojciech Żaboklicki </p></center>
+			<p>2008 - Created by Wojciech Żaboklicki </p>
 		</div>
 	</div>
 

@@ -2,7 +2,6 @@ package util;
 
 import java.awt.Color;
 import java.awt.Rectangle;
-import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -92,6 +91,7 @@ import web.CountBean;
 			double x=0.05*i-5+Double.parseDouble(licz.getX());
 			parser.addVariable("x", x);
 			try {
+				if(!(new Double(parser.getValue()).isNaN()))
 				ser.add(x, parser.getValue());
 			} catch (ParseException e) {
 				
@@ -133,7 +133,7 @@ import web.CountBean;
 		plot.setRangeGridlinePaint(Color.black);
 		XYSeriesCollection sc=(XYSeriesCollection)plot.getDataset();
 		
-		XYSeries wezly=new XYSeries("Wêz³y");
+		XYSeries wezly=new XYSeries("WÄ™zÅ‚y");
 		double min=punkty.get(0).getX();
 		double max=punkty.get(0).getX();
 		
@@ -146,9 +146,11 @@ import web.CountBean;
 				max=x;
 			}
 		}
-		double k=(int)(max-min+2)/0.01;
-		double x=min-1;
-		XYSeries newton=new XYSeries("Funkcja intepoluj¹ca");
+		min=min-1;
+		max=max+1;
+		int k=(int)((max-min)/0.01);
+		double x=min;
+		XYSeries newton=new XYSeries("Funkcja intepolujÄ…ca");
 		if(n==null){
 			System.out.println(x+"!!!!!!");
 		}
