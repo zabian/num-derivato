@@ -95,7 +95,6 @@ public class Newton{
 			
 		}
 		if (n==p.size()-1) return;
-		System.out.println("****"+n);
 		getClassicalFormula(p, t, tab, n+1);
 	}
 	
@@ -109,7 +108,6 @@ public class Newton{
 			for (int j=0; j<=i; j++){
 				temp[j+1]=tt[j];
 				tt[j]=tt[j]*(-1)*p.get(i).getX();
-				System.out.println(temp[j+1]);
 			}
 			//tt[i]*=(-1)*p.get(i).getX();
 			for (int j=0; j<=i+1; j++){
@@ -162,7 +160,6 @@ public class Newton{
 		}
 		wspol(ob, t, tab, 0);
 		for (int i=0; i<ob.size(); i++){
-			System.out.println(tab[i]);
 			if (tab[i]!=0){
 				if (tab[i]>0 && byl){
 					wzor+="+";
@@ -193,7 +190,6 @@ public class Newton{
 		double wynik=0;
 		if (n==ob.size()-1) return t[n];
 		wynik=t[n]+(x-ob.get(n).getX())*horner(x,n+1);
-		System.out.println("wynik"+n+"= "+wynik);
 		return wynik;
 	}
 

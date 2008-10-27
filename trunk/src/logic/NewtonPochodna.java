@@ -11,7 +11,6 @@ public class NewtonPochodna extends Pochodna {
 
 	@Override
 	public double getValue(double arg) {
-		
 		double value;
 		value= n.horner(arg, 0);
 		return value;

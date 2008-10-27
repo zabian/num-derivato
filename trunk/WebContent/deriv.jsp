@@ -212,11 +212,13 @@
 			</table>
 			<%} %>
 			<br><br>
+
 			<img align="middle" src=wykres.png?type=der>
+
 		</div>
 		
 		<div id="footer">
-			<center><p>  2008 Created by Wojciech Żaboklicki </p></center>
+			<p>2008 - Created by Wojciech Żaboklicki </p>
 		</div>
 	</div>
 </div>

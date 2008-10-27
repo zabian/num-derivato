@@ -23,8 +23,7 @@ public class Pochodna {
     		y=p.getValue();
         }catch (ParseException pe){
         }
-        System.out.println("Wartosc wyr. "+y);
-		return y;	
+        return y;	
 	}
 	public double derivBack(String wyr, double arg, double h, int n){
 		double y_4,y_3,y_2,y_1,y0;

@@ -94,11 +94,19 @@ double p;
 						
 						<table>
 							<tr>
-								<td>
+								<td rowspan="2" valign="bottom">
 									<b><var>h</var></b>	
 								</td>
 								<td colspan="2" align="center">
 									<b>wsteczny</b>
+								</td>
+							</tr>
+							<tr>
+								<td align="center">
+									<b>f'(x)</b>
+								</td>
+								<td align="center">
+									<b>|E(f'(x))|</b>
 								</td>
 							</tr>
 							<%for (int i=0; i<h.length; i++) { %>
@@ -111,7 +119,7 @@ double p;
 										<input value="<%=p %>" size="15" readonly="readonly">
 									</td>
 									<td>
-										<input value="<%=Math.abs(p1-p) %>" size="15" readonly="readonly">
+										<input value="<%=Rounder.round(Math.abs(p1-p), Integer.parseInt(badanie.getPrecyzja()))  %>" size="15" readonly="readonly">
 									</td>														
 								</tr>
 							<%}%>
@@ -122,11 +130,19 @@ double p;
 					<%if (badanie.getIloraz().equals("centralny") || badanie.getIloraz().equals("wszystkie")){ %>
 						<table>
 							<tr>
-								<td>
+								<td rowspan="2" valign="bottom">
 									<b><var>h</var></b>	
 								</td>
 								<td colspan="2" align="center">
 									<b>centralny</b>
+								</td>
+							</tr>
+							<tr>
+								<td align="center">
+									<b>f'(x)</b>
+								</td>
+								<td align="center">
+									<b>|E(f'(x))|</b>
 								</td>
 							</tr>
 							<%for (int i=0; i<h.length; i++) { %>
@@ -139,7 +155,7 @@ double p;
 										<input value="<%=p %>" size="15" readonly="readonly">
 									</td>
 									<td>
-										<input value="<%=Math.abs(p1-p) %>" size="15" readonly="readonly">
+										<input value="<%=Rounder.round(Math.abs(p1-p), Integer.parseInt(badanie.getPrecyzja())) %>" size="15" readonly="readonly">
 									</td>														
 								</tr>
 							<%}%>
@@ -150,11 +166,19 @@ double p;
 					<%if (badanie.getIloraz().equals("do przodu") || badanie.getIloraz().equals("wszystkie")){ %>
 						<table>
 							<tr>
-								<td>
+								<td rowspan="2" valign="bottom">
 									<b><var>h</var></b>	
 								</td>
 								<td colspan="2" align="center">
-									<b>do przodu</b>
+									<b>progresywny</b>
+								</td>
+							</tr>
+							<tr>
+								<td align="center">
+									<b>f'(x)</b>
+								</td>
+								<td align="center">
+									<b>|E(f'(x))|</b>
 								</td>
 							</tr>
 							<%for (int i=0; i<h.length; i++) { %>
@@ -167,7 +191,7 @@ double p;
 										<input value="<%=p %>" size="15" readonly="readonly">
 									</td>
 									<td>
-										<input value="<%=Math.abs(p1-p) %>" size="15" readonly="readonly">
+										<input value="<%=Rounder.round(Math.abs(p1-p), Integer.parseInt(badanie.getPrecyzja())) %>" size="15" readonly="readonly">
 									</td>														
 								</tr>
 							<%}%>
@@ -185,11 +209,19 @@ double p;
 						
 						<table>
 							<tr>
-								<td>
+								<td rowspan="2" valign="bottom">
 									<b><var>h</var></b>	
 								</td>
 								<td colspan="2" align="center">
 									<b>wsteczny</b>
+								</td>
+							</tr>
+							<tr>
+								<td align="center">
+									<b>f''(x)</b>
+								</td>
+								<td align="center">
+									<b>|E(f''(x))|</b>
 								</td>
 							</tr>
 							<%for (int i=0; i<h.length; i++) { %>
@@ -202,7 +234,7 @@ double p;
 										<input value="<%=p %>" size="15" readonly="readonly">
 									</td>
 									<td>
-										<input value="<%=Math.abs(p2-p) %>" size="15" readonly="readonly">
+										<input value="<%=Rounder.round(Math.abs(p2-p), Integer.parseInt(badanie.getPrecyzja())) %>" size="15" readonly="readonly">
 									</td>														
 								</tr>
 							<%}%>
@@ -213,11 +245,19 @@ double p;
 					<%if (badanie.getIloraz().equals("centralny") || badanie.getIloraz().equals("wszystkie")){ %>
 						<table>
 							<tr>
-								<td>
+								<td rowspan="2" valign="bottom">
 									<b><var>h</var></b>	
 								</td>
 								<td colspan="2" align="center">
 									<b>centralny</b>
+								</td>
+							</tr>
+							<tr>
+								<td align="center">
+									<b>f''(x)</b>
+								</td>
+								<td align="center">
+									<b>|E(f''(x))|</b>
 								</td>
 							</tr>
 							<%for (int i=0; i<h.length; i++) { %>
@@ -230,7 +270,7 @@ double p;
 										<input value="<%=p %>" size="15" readonly="readonly">
 									</td>
 									<td>
-										<input value="<%=Math.abs(p2-p) %>" size="15" readonly="readonly">
+										<input value="<%=Rounder.round(Math.abs(p2-p), Integer.parseInt(badanie.getPrecyzja())) %>" size="15" readonly="readonly">
 									</td>														
 								</tr>
 							<%}%>
@@ -241,11 +281,19 @@ double p;
 					<%if (badanie.getIloraz().equals("do przodu") || badanie.getIloraz().equals("wszystkie")){ %>
 						<table>
 							<tr>
-								<td>
+								<td rowspan="2" valign="bottom">
 									<b><var>h</var></b>	
 								</td>
 								<td colspan="2" align="center">
-									<b>do przodu</b>
+									<b>progresywny</b>
+								</td>
+							</tr>
+							<tr>
+								<td align="center">
+									<b>f''(x)</b>
+								</td>
+								<td align="center">
+									<b>|E(f''(x))|</b>
 								</td>
 							</tr>
 							<%for (int i=0; i<h.length; i++) { %>
@@ -258,7 +306,7 @@ double p;
 										<input value="<%=p %>" size="15" readonly="readonly">
 									</td>
 									<td>
-										<input value="<%=Math.abs(p2-p) %>" size="15" readonly="readonly">
+										<input value="<%=Rounder.round(Math.abs(p2-p), Integer.parseInt(badanie.getPrecyzja())) %>" size="15" readonly="readonly">
 									</td>														
 								</tr>
 							<%}%>
@@ -276,7 +324,7 @@ double p;
 		</div>
 	</div>
 	<div id="footer">
-		<center><p> Created by Wojciech Żaboklicki </p></center>
+		<p>2008 - Created by Wojciech Żaboklicki </p>
 	</div>
 </div>
 
